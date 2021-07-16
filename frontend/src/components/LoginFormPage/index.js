@@ -43,7 +43,7 @@ function LoginFormPage() {
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
                 <label>
-                    Username:
+                    Username
                     <input className="login__input"
                         type="text"
                         value={credential}
@@ -52,7 +52,7 @@ function LoginFormPage() {
                     />
                 </label>
                 <label>
-                    Password:
+                    Password
                     <input
                         className="password__input"
                         type="password"
