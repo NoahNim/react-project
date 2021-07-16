@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     color: white;
-    margin-top: 170px;
+    margin-top: 130px;
 }
 
 .signup__form {
@@ -13,16 +13,23 @@
     align-items: center;
     width: 300px;
     border-radius: 10px;
-    height: 270px
+    height: 300px;
+    justify-content: space-between;
 }
 
 label {
+    font-size: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
     align-self: flex-start;
     padding-left: 20px;
     font-weight: 200;
-    font-family: Verdana, Geneva, Tahoma, sans-serif
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 30%;
+}
+
+label, input {
+    display: inline-block;
 }
 
 .signup__input {
@@ -30,15 +37,13 @@ label {
     margin-left: 3px;
 }
 
-.password__input {
-    width: 139px;
-    margin-left: 6px;
-    padding: 1px;
-}
-
 .button {
     box-sizing: border-box;
     border-radius: 4px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: rgb(224, 250, 164);
+}
+
+input {
+    width: 100%
 }
