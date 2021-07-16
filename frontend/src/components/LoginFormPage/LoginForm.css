@@ -21,6 +21,8 @@ label {
     padding-bottom: 10px;
     align-self: flex-start;
     padding-left: 20px;
+    font-weight: 200;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
 .login__input {
@@ -32,4 +34,11 @@ label {
     width: 139px;
     margin-left: 6px;
     padding: 1px;
+}
+
+.button {
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgb(224, 250, 164);
 }
