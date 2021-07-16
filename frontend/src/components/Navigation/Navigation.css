@@ -6,10 +6,9 @@ nav {
     height: 150px;
     margin: 0px;
     position: sticky;
-    top: 0;
     color: white;
     border-radius: 10px;
-
+    top: 0;
 }
 
 .nav__link {
