@@ -25,15 +25,15 @@ function LoginFormPage() {
             });
     }
 
-    // const demoLogin = () => {
-    //     const demoCred = 'Demo-lition';
-    //     const demoPass = 'password';
-    //     return dispatch(sessionActions.login({demoCred, demoPass}))
-    //         .catch(async (res) => {
-    //             const data = await res.json();
-    //             if (data && data.errors) setErrors(data.errors);
-    //         });
-    // }
+    const demoLogin = () => {
+        const demoCred = 'Demo-lition';
+        const demoPass = 'password';
+        return dispatch(sessionActions.login({'credential': demoCred, 'password': demoPass}))
+            .catch(async (res) => {
+                const data = await res.json();
+                if (data && data.errors) setErrors(data.errors);
+            });
+    }
 
     return (
 
@@ -63,7 +63,7 @@ function LoginFormPage() {
                 </label>
                 <button className="button" type="submit">Log In</button>
             </form>
-            {/* <button type="button" onClick={demoLogin}>Demo</button> */}
+            <button type="button" onClick={demoLogin}>Demo</button>
         </div>
     );
 }
