@@ -1,0 +1,35 @@
+.login__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    margin-top: 170px;
+}
+
+.login__form {
+    background-color: rgb(91, 91, 247);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    border-radius: 10px;
+    height: 180px
+}
+
+label {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    align-self: flex-start;
+    padding-left: 20px;
+}
+
+.login__input {
+    width: 139px;
+    margin-left: 3px;
+}
+
+.password__input {
+    width: 139px;
+    margin-left: 6px;
+    padding: 1px;
+}
