@@ -2,7 +2,7 @@ nav {
     display: inline-flex;
     flex-direction: column;
     background-color: rgb(91, 91, 247);
-    width: 80px;
+    width: 200px;
     height: 150px;
     margin: 0px;
     position: sticky;
@@ -21,11 +21,15 @@ nav {
    border-bottom-right-radius: 10px;
 }
 
+ul {
+    list-style-type: none;
+}
+
 .profile__button {
     margin-left: 10px;
 }
 
-.openedButton {
+.open__nav {
     width: 50px;
     background-color: rgb(208, 129, 220);
     border-radius: 7px;
@@ -33,4 +37,8 @@ nav {
 
 .nav__link:visited {
     color: white;
+}
+
+#logout {
+    width: 100px;
 }

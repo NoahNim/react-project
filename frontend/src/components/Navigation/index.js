@@ -33,7 +33,7 @@ function Navigation({ isLoaded }) {
             <button onClick={handleNav} className="button" hidden={navOpen}>Navigation</button>
             {navOpen &&
                 <nav className="nav">
-                <button onClick={handleNav} className="openedButton">Close</button>
+                <button onClick={handleNav} className="open__nav ">Close</button>
                 <NavLink className="nav__link" exact to="/">Home</NavLink>
                 {isLoaded && sessionLinks}
             </nav>}
