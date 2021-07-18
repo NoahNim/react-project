@@ -25,31 +25,46 @@ function LoginFormPage() {
             });
     }
 
+    const demoLogin = () => {
+        const demoCred = 'Demo-lition';
+        const demoPass = 'password';
+        return dispatch(sessionActions.login({'credential': demoCred, 'password': demoPass}))
+            .catch(async (res) => {
+                const data = await res.json();
+                if (data && data.errors) setErrors(data.errors);
+            });
+    }
+
     return (
-        <form onSubmit={handleSubmit}>
-            <ul>
-                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-            </ul>
-            <label>
-                Username or Email
-                <input
-                    type="text"
-                    value={credential}
-                    onChange={(e) => setCredential(e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                Password
-                <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-            </label>
-            <button type="submit">Log In</button>
-        </form>
+
+        <div className="login__container">
+            <form onSubmit={handleSubmit} className="login__form">
+                <ul>
+                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                </ul>
+                <label>
+                    Username
+                    <input className="login__input"
+                        type="text"
+                        value={credential}
+                        onChange={(e) => setCredential(e.target.value)}
+                        required
+                    />
+                </label>
+                <label>
+                    Password
+                    <input
+                        className="password__input"
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </label>
+                <button className="button" type="submit">Log In</button>
+                <button className="button" type="button" onClick={demoLogin}>Demo</button>
+            </form>
+        </div>
     );
 }
 
