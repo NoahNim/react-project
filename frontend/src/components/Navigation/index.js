@@ -30,10 +30,10 @@ function Navigation({ isLoaded }) {
 
     return (
         <>
-            <button onClick={handleNav} className="button" hidden={navOpen}>{navOpen ? "Close Nav" : "Open Nav"}</button>
+            <button onClick={handleNav} className="button" hidden={navOpen}>Navigation</button>
             {navOpen &&
                 <nav className="nav">
-                <button onClick={handleNav} className="button">{navOpen ? "Close Nav" : "Open Nav"}</button>
+                <button onClick={handleNav} className="openedButton">Close</button>
                 <NavLink className="nav__link" exact to="/">Home</NavLink>
                 {isLoaded && sessionLinks}
             </nav>}

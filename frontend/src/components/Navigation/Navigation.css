@@ -2,7 +2,7 @@ nav {
     display: inline-flex;
     flex-direction: column;
     background-color: rgb(91, 91, 247);
-    width: 200px;
+    width: 80px;
     height: 150px;
     margin: 0px;
     position: sticky;
@@ -13,6 +13,7 @@ nav {
 
 .nav__link {
     margin-left: 10px;
+    text-decoration: none;
 }
 
 .dropdown {
@@ -24,10 +25,12 @@ nav {
     margin-left: 10px;
 }
 
-.showNav.closed {
-    background-color: red;
+.openedButton {
+    width: 50px;
+    background-color: rgb(208, 129, 220);
+    border-radius: 7px;
 }
 
-.showNav.open {
-    background-color: seagreen;
+.nav__link:visited {
+    color: white;
 }
