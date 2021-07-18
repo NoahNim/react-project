@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
@@ -6,6 +6,9 @@ import './Navigation.css';
 
 function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
+    const [navOpen, setNavOpen] = useState(false);
+
+    const handleNav = () => setNavOpen(!navOpen);
 
     let sessionLinks;
     if (sessionUser) {
@@ -26,10 +29,15 @@ function Navigation({ isLoaded }) {
     }
 
     return (
-        <nav>
-            <NavLink className="nav__link" exact to="/">Home</NavLink>
-            {isLoaded && sessionLinks}
-        </nav>
+        <>
+            <button onClick={handleNav} className="button" hidden={navOpen}>{navOpen ? "Close Nav" : "Open Nav"}</button>
+            {navOpen &&
+                <nav className="nav">
+                <button onClick={handleNav} className="button">{navOpen ? "Close Nav" : "Open Nav"}</button>
+                <NavLink className="nav__link" exact to="/">Home</NavLink>
+                {isLoaded && sessionLinks}
+            </nav>}
+        </>
     );
 }
 

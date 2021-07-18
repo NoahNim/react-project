@@ -23,3 +23,11 @@ nav {
 .profile__button {
     margin-left: 10px;
 }
+
+.showNav.closed {
+    background-color: red;
+}
+
+.showNav.open {
+    background-color: seagreen;
+}
