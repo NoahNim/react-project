@@ -8,3 +8,5 @@ router.get('/', asyncHandler(async (req, res) => {
 
     return res.json({albums})
 }));
+
+module.exports = router;

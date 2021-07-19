@@ -23,7 +23,7 @@ const AlbumReducer = (state = {}, action) => {
             });
             return {
                 ...allAlbums,
-                ...state
+                ...state,
             }
         };
         default:
