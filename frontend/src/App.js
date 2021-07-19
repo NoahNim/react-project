@@ -30,7 +30,7 @@ function App() {
             <Route path="/signup">
               <SignupFormPage />
             </Route>
-            <Route path="/album">
+            <Route path={["/album", "/album/:id"]}>
               <AlbumsPage />
             </Route>
             <Route path="/album/:id">

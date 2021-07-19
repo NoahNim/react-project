@@ -11,7 +11,6 @@ router.get('/', asyncHandler(async (req, res) => {
 }));
 
 //Show An Album
-
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     const albumId = req.params.id;
     const album = await db.Album.findByPk(albumId, {
