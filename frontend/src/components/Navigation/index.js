@@ -24,6 +24,9 @@ function Navigation({ isLoaded }) {
                 <div>
                     <NavLink className="nav__link" to="/signup">Sign Up</NavLink>
                 </div>
+                <div>
+                    <NavLink className="nav__link" to="/album">Your Alvum</NavLink>
+                </div>
             </>
         );
     }
