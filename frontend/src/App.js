@@ -7,6 +7,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Homepage from "./components/Homepage";
 import AlbumsPage from './components/AlbumsPage';
+import Album from './components/AlbumsPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +32,9 @@ function App() {
             </Route>
             <Route path="/album">
               <AlbumsPage />
+            </Route>
+            <Route path="/album/:id">
+              <Album />
             </Route>
           </Switch>
         )
