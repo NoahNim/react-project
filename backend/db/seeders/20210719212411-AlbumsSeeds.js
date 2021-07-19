@@ -14,6 +14,10 @@ module.exports = {
     */
     return queryInterface.bulkInsert('Albums', [{
       name: 'Test', userId: 1, createdAt: new Date(), updatedAt: new Date()
+    }, {
+      name: 'Test 2', userId: 1, createdAt: new Date(), updatedAt: new Date()
+    }, {
+      name: 'Test 3', userId: 1, createdAt: new Date(), updatedAt: new Date()
     }], {});
   },
 
