@@ -5,9 +5,8 @@ import './AlbumPage.css';
 
 function AlbumsPage() {
     const dispatch = useDispatch();
-    // const albums = useSelector(state => state.albums);
-    // console.log(albums);
-    // const albumArr = Object.values(album);
+    const albums = useSelector(state => state.albums);
+    const albumArr = Object.values(albums);
 
     useEffect(() => {
         dispatch(getAlbums());
@@ -16,6 +15,11 @@ function AlbumsPage() {
     return (
         <div className="album__div">
             <h1>Test Text</h1>
+            {albumArr.map((album) => {
+                return (
+                    <p>{album.name}</p>
+                )
+            })}
         </div>
     )
 }
