@@ -6,7 +6,7 @@ import SignupFormPage from './components/SignUpFormPage';
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Homepage from "./components/Homepage";
-import AlbumPage from './components/AlbumsPage';
+import AlbumsPage from './components/AlbumsPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ function App() {
               <SignupFormPage />
             </Route>
             <Route path="/album">
-              <AlbumPage />
+              <AlbumsPage />
             </Route>
           </Switch>
         )

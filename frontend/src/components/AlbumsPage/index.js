@@ -5,12 +5,9 @@ import './AlbumPage.css';
 
 function AlbumsPage() {
     const dispatch = useDispatch();
-    // const album = useSelector(state => state.album)
-
-    // console.log(album);
+    
 
     useEffect(() => {
-        console.log(dispatch(getAlbums()));
         dispatch(getAlbums());
     }, [dispatch]);
 
