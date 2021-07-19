@@ -1,0 +1,8 @@
+.title {
+    background-color: rgb(91, 91, 247);
+    display: flex;
+    justify-content: center;
+    width: 500px;
+    margin-left: 380px;
+    height: 800px;
+}
