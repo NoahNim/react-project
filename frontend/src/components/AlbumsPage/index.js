@@ -1,7 +1,7 @@
 import React from 'react';
 import './AlbumPage.css';
 
-function AlbumPage() {
+function AlbumsPage() {
     return (
         <div className="album__div">
             <h1>Test Text</h1>
@@ -9,4 +9,4 @@ function AlbumPage() {
     )
 }
 
-export default AlbumPage;
+export default AlbumsPage;
