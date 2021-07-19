@@ -42,6 +42,9 @@ const AlbumReducer = (state = {}, action) => {
                 ...state
             }
         };
+        case LOAD_ALBUM: {
+            
+        };
         default:
             return state;
     }

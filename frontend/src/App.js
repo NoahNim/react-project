@@ -6,8 +6,8 @@ import SignupFormPage from './components/SignUpFormPage';
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Homepage from "./components/Homepage";
-import AlbumsPage from './components/AlbumsPage';
-import Album from './components/AlbumsPage';
+import AlbumsPage from './components/Albums/index';
+import Album from './components/Albums/album';
 
 function App() {
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ function App() {
             <Route path="/signup">
               <SignupFormPage />
             </Route>
-            <Route path={["/album", "/album/:id"]}>
+            <Route path="/album" exact>
               <AlbumsPage />
             </Route>
             <Route path="/album/:id">
