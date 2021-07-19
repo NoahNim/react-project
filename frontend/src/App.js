@@ -6,7 +6,7 @@ import SignupFormPage from './components/SignUpFormPage';
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Homepage from "./components/Homepage";
-import AlbumPage from './components/AlbumPage';
+import AlbumPage from './components/AlbumsPage';
 
 function App() {
   const dispatch = useDispatch();
