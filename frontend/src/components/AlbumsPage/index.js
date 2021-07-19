@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { getAlbums } from '../../store/albums';
 import './AlbumPage.css';
 
@@ -14,10 +15,9 @@ function AlbumsPage() {
 
     return (
         <div className="album__div">
-            <h1>Test Text</h1>
             {albumArr.map((album) => {
                 return (
-                    <p>{album.name}</p>
+                    <NavLink className="nav__link" key={album.name} to={`/album/${album.id}`}>{album.name}</NavLink>
                 )
             })}
         </div>
