@@ -14,9 +14,10 @@ router.get('/', asyncHandler(async (req, res) => {
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     const albumId = req.params.id;
     const album = await db.Album.findByPk(albumId, {
-        include: db.User
+        include: db.User,
+        where: userId
     });
-
+    console.log(album);
     return res.json({ album });
 }))
 
