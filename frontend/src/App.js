@@ -22,7 +22,7 @@ function App() {
       {
         isLoaded && (
           <Switch>
-            <Route path="/" exact>
+            <Route path="/" exact={true}>
               <Homepage />
             </Route>
             <Route path="/login">
@@ -31,14 +31,14 @@ function App() {
             <Route path="/signup">
               <SignupFormPage />
             </Route>
-            <Route path="/album" exact>
+            <Route path="/album" exact={true}>
               <AlbumsPage />
+            </Route>
+            <Route path="/album/new" exact={true}>
+              <CreateAlbum />
             </Route>
             <Route path="/album/:id">
               <Album />
-            </Route>
-            <Route path="/album/new">
-              <CreateAlbum />
             </Route>
           </Switch>
         )
