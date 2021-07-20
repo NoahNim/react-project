@@ -51,6 +51,27 @@ export const createAlbum = (payload) => async dispatch => {
     return res;
 }
 
+export const updateAlbum = (id, payload) => async dispatch => {
+    const { name, userId } = payload
+
+    const res = await csrfFetch(`/api/album/${id}/edit`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            name,
+            userId
+        })
+    });
+
+    const newAlbum = await res.json();
+
+    if (res.ok) {
+        dispatch(makeAlbum(newAlbum.payload));
+    }
+
+    return res;
+}
+
 export const getAlbum = (id) => async dispatch => {
     const res = await fetch(`/api/album/${id}`);
 

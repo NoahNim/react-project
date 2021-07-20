@@ -15,7 +15,7 @@ function Album() {
         dispatch(getAlbum(id));
     }, [dispatch, id]);
 
-    if (sessionUser) {
+
         return (
             <div>
                 {photoArr.map(photo => {
@@ -31,8 +31,6 @@ function Album() {
                 })}
             </div>
         )
-    }
-
 }
 
 export default Album;

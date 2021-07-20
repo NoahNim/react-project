@@ -48,6 +48,23 @@ router.post('/new', requireAuth, validateCreateAlbum, asyncHandler(async (req, r
     return res.json({ album })
 }))
 
+//Edit Album
+router.put('/:id(\\d+)/edit', requireAuth, validateCreateAlbum, asyncHandler(async (req, res) => {
+    let albumId = req.params.id;
+    const album = await db.Album.findByPk(albumId)
+    let userId = req.user.id
+    const { name } = req.body;
+
+    const updatedAlbum = {
+        name,
+        userId
+    }
+
+    await album.update(updatedAlbum);
+
+    return res.json({ album })
+}))
+
 //Delete Album
 
 router.delete('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {

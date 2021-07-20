@@ -9,6 +9,7 @@ import Homepage from "./components/Homepage";
 import AlbumsPage from './components/Albums/index';
 import Album from './components/Albums/album';
 import CreateAlbum from './components/Albums/createAlbum';
+import EditAlbum from './components/Albums/editAlbum';
 
 function App() {
   const dispatch = useDispatch();
@@ -37,8 +38,11 @@ function App() {
             <Route path="/album/new" exact={true}>
               <CreateAlbum />
             </Route>
-            <Route path="/album/:id">
+            <Route path="/album/:id" exact={true}>
               <Album />
+            </Route>
+            <Route path="/album/:id/edit" exact={true}>
+              <EditAlbum />
             </Route>
           </Switch>
         )
