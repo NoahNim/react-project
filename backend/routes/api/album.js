@@ -25,8 +25,9 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
 }))
 
 //Create New Album
-router.post('/new', requireAuth, asyncHandler(async (req, res, next) => {
-    const { name, userId } = req.body;
+router.post('/new', requireAuth, asyncHandler(async (req, res) => {
+    let userId = req.user.id
+    const { name} = req.body;
 
     const album = await db.Album.build({
         name,
