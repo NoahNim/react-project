@@ -12,7 +12,7 @@ const loadAlbum = photos => ({
     photos
 })
 
-const newAlbum = album => ({
+const makeAlbum = album => ({
     type: NEW_ALBUM,
     album
 })
@@ -24,6 +24,29 @@ export const getAlbums = () => async dispatch => {
         const albums = await res.json();
         dispatch(load(albums));
     }
+
+    return;
+}
+
+export const createAlbum = (payload) => async dispatch => {
+    const { name, userId } = payload
+
+    const res = await fetch('/api/album/new', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            name,
+            userId
+        })
+    });
+
+    const newAlbum = await res.json();
+
+    if (res.ok) {
+        dispatch(makeAlbum(newAlbum.payload));
+    }
+
+    return res;
 }
 
 export const getAlbum = (id) => async dispatch => {
@@ -37,6 +60,7 @@ export const getAlbum = (id) => async dispatch => {
 
 const AlbumReducer = (state = {}, action) => {
     console.log(action);
+    let newState;
     switch (action.type) {
         case LOAD: {
             const allAlbums = {};
@@ -59,23 +83,9 @@ const AlbumReducer = (state = {}, action) => {
             }
         };
         case NEW_ALBUM: {
-            if (!state[action.albums.albums.id]) {
-                const newState = {
-                    ...state,
-                    [action.album.album.id]: action.album.album
-                }
-                const albumList = newState.list.map(id => newState[id]);
-                albumList.push(action.album.album);
-                newState.list = albumList;
-                return newState;
-            }
-            return {
-                ...state,
-                [action.album.album.id]: {
-                    ...state[action.album.album.id],
-                    ...action.album.album
-                }
-            }
+            newState = Object.assign({}, state);
+            newState.albums = action.album;
+            return newState;
         }
         default:
             return state;

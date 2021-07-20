@@ -25,18 +25,17 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
 }))
 
 //Create New Album
-// router.get('/new', asyncHandler(async (req, res) => {
-//     return res;
-// }))
 router.post('/new', requireAuth, asyncHandler(async (req, res, next) => {
-    const { name } = req.body;
+    const { name, userId } = req.body;
 
     const album = await db.Album.build({
         name,
-        userId: req.locals.session.user.id
+        userId
     })
 
     await album.save();
+
+    return res.json({ album })
 }))
 
 //Delete Album
