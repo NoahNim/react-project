@@ -7,6 +7,7 @@ import './AlbumPage.css';
 function Album() {
     const { id } = useParams();
     const photos = useSelector(state => state.albums);
+    const sessionUser = useSelector(state => state.session.user);
     const photoArr = Object.values(photos);
     console.log(photoArr);
     const dispatch = useDispatch();
@@ -18,12 +19,14 @@ function Album() {
     return (
         <div>
             {photoArr.map(photo => {
-                return (
-                    <div>
-                        <h2 key={photo.name}>{photo.name}</h2>
-                        <img key={photo.name} src={photo.imgUrl} height="100" width="100"></img>
-                    </div>
-                )
+                if (sessionUser.id === photo.userId) {
+                    return (
+                        <div>
+                            <h2 key={photo.name}>{photo.name}</h2>
+                            <img key={photo.name} src={photo.imgUrl} alt="meow" height="100" width="100"></img>
+                        </div>
+                    )
+                }
             })}
         </div>
     )
