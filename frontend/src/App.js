@@ -36,6 +36,9 @@ function App() {
             <Route path="/album/:id">
               <Album />
             </Route>
+            <Route path="/album/new">
+              <createAlbum />
+            </Route>
           </Switch>
         )
       }
