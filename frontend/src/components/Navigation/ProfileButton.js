@@ -46,7 +46,7 @@ function ProfileButton({ user }) {
                         </li>
                     </ul>
                     <div>
-                        <NavLink className="nav__link" to="/album">Your Albums</NavLink>
+                        <NavLink className="nav__link" to="/album">Albums</NavLink>
                     </div>
                 </div>
 

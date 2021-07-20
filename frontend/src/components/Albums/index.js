@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, Route } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { getAlbums } from '../../store/albums';
 import './AlbumPage.css';
 
@@ -16,16 +16,35 @@ function AlbumsPage() {
 
     if (sessionUser) {
         return (
-            <div className="album__div">
+            <div className="user__album__div">
+                <h3>Your Albums</h3>
                 {
                     albumArr.map((album) => {
                         if (sessionUser.id === album.userId) {
                             return (
-                                <NavLink className="nav__link" key={album.userId} to={`/album/${album.id}`}>{album.name}
-                                </NavLink>
+                                <div>
+                                    <NavLink className="nav__link" key={album.name} to={`/album/${album.id}`}>{album.name}
+                                    </NavLink>
+                                </div>
+
                             )
                         }
-                    })}
+                    })
+                }
+                <h3>Expore Other Users Albums</h3>
+                {
+                    albumArr.map((album) => {
+                        if (sessionUser.id !== album.userId) {
+                            return (
+                                <div>
+                                    <NavLink className="nav__link" key={album.name} to={`/album/${album.id}`}>{album.name}
+                                    </NavLink>
+                                </div>
+
+                            )
+                        }
+                    })
+                }
             </div>
         )
     }
