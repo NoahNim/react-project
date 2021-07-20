@@ -55,7 +55,7 @@ function AlbumsPage() {
         )
     }
     else {
-        history.push("/");
+        return history.push("/");
     }
 }
 

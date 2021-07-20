@@ -11,6 +11,7 @@ function Album() {
     const photoArr = Object.values(photos);
     const dispatch = useDispatch();
     const history = useHistory();
+    const album = useSelector(state => state.albums);
 
     useEffect(() => {
         dispatch(getAlbum(id));
@@ -21,16 +22,12 @@ function Album() {
         return history.push('/album')
     }
 
-    if (sessionUser) {
-        return <button className="delete__button" onClick={handleDeletAlbum}>Delete Album</button>
-    }
-
     return (
         <div>
-            { }
+            <button hidden={!sessionUser && sessionUser.id !== album.album.id} className="delete__button" onClick={handleDeletAlbum}>Delete Album</button>
             {photoArr.map(photo => {
                 console.log(photo.albumId)
-                if (sessionUser.id === photo.userId && photo.albumId === Number(id)) {
+                if (photo.albumId === Number(id)) {
                     return (
                         <div>
                             <div>
@@ -44,6 +41,8 @@ function Album() {
             })}
         </div>
     )
+
+
 }
 
 export default Album;

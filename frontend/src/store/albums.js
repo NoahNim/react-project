@@ -130,9 +130,9 @@ const AlbumReducer = (state = {}, action) => {
             return newState;
         }
         case DELETE_ALBUM: {
-            newState = Object.assign({}, state);
-            newState.albums = action.album;
-            return newState;
+            newState = {...state}
+            delete newState[action.album]
+            return newState
         }
         default:
             return state;
