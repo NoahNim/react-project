@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
 import { getAlbums } from '../../store/albums';
@@ -15,10 +15,14 @@ function AlbumsPage() {
         dispatch(getAlbums());
     }, [dispatch]);
 
+    function newDirect() {
+        history.push("/album/new")
+    }
+
     if (sessionUser) {
         return (
             <div className="user__album__div">
-                <button>New Album</button>
+                <button onClick={newDirect}>New Album</button>
                 <h3>Your Albums</h3>
                 {
                     albumArr.map((album) => {

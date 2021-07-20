@@ -1,5 +1,6 @@
 const LOAD = 'albums/LOAD';
 const LOAD_ALBUM = 'album/LOAD_ALBUM';
+const NEW_ALBUM = 'album/new'
 
 const load = albums => ({
     type: LOAD,
@@ -9,6 +10,11 @@ const load = albums => ({
 const loadAlbum = photos => ({
     type: LOAD_ALBUM,
     photos
+})
+
+const newAlbum = album => ({
+    type: NEW_ALBUM,
+    album
 })
 
 export const getAlbums = () => async dispatch => {
@@ -52,6 +58,25 @@ const AlbumReducer = (state = {}, action) => {
                 ...state
             }
         };
+        case NEW_ALBUM: {
+            if (!state[action.albums.albums.id]) {
+                const newState = {
+                    ...state,
+                    [action.album.album.id]: action.album.album
+                }
+                const albumList = newState.list.map(id => newState[id]);
+                albumList.push(action.album.album);
+                newState.list = albumList;
+                return newState;
+            }
+            return {
+                ...state,
+                [action.album.album.id]: {
+                    ...state[action.album.album.id],
+                    ...action.album.album
+                }
+            }
+        }
         default:
             return state;
     }

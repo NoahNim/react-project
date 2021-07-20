@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation";
 import Homepage from "./components/Homepage";
 import AlbumsPage from './components/Albums/index';
 import Album from './components/Albums/album';
+import CreateAlbum from './components/Albums/createAlbum';
 
 function App() {
   const dispatch = useDispatch();
@@ -37,7 +38,7 @@ function App() {
               <Album />
             </Route>
             <Route path="/album/new">
-              <createAlbum />
+              <CreateAlbum />
             </Route>
           </Switch>
         )
