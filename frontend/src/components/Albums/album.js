@@ -5,13 +5,13 @@ import { getAlbum } from '../../store/albums';
 import './AlbumPage.css';
 
 function Album() {
-    const { albumId } = useParams();
+    const { id } = useParams();
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getAlbum(albumId));
-    }, [dispatch, albumId]);
+        dispatch(getAlbum(id));
+    }, [dispatch, id]);
 
     return (
         <div>
