@@ -20,8 +20,8 @@ function Album() {
             {photoArr.map(photo => {
                 return (
                     <div>
-                        <h2>{photo.name}</h2>
-                        <img src={photo.imgUrl} height="100" width="100"></img>
+                        <h2 key={photo.name}>{photo.name}</h2>
+                        <img key={photo.name} src={photo.imgUrl} height="100" width="100"></img>
                     </div>
                 )
             })}

@@ -7,23 +7,28 @@ import './AlbumPage.css';
 function AlbumsPage() {
     const dispatch = useDispatch();
     const albums = useSelector(state => state.albums);
+    const sessionUser = useSelector(state => state.session.user);
     const albumArr = Object.values(albums);
 
     useEffect(() => {
         dispatch(getAlbums());
     }, [dispatch]);
 
-    return (
-        <div className="album__div">
-            {
-                albumArr.map((album) => {
-                    return (
-                        <NavLink className="nav__link" key={album.id} to={`/album/${album.id}`}>{album.name}
-                    </NavLink>
-                )
-            })}
-        </div>
-    )
+    if (sessionUser) {
+        return (
+            <div className="album__div">
+                {
+                    albumArr.map((album) => {
+                        if (sessionUser.id === album.userId) {
+                            return (
+                                <NavLink className="nav__link" key={album.userId} to={`/album/${album.id}`}>{album.name}
+                                </NavLink>
+                            )
+                        }
+                    })}
+            </div>
+        )
+    }
 }
 
 export default AlbumsPage;
