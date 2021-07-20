@@ -32,7 +32,6 @@ function AlbumsPage() {
                                     <NavLink className="nav__link" key={album.name} to={`/album/${album.id}`}>{album.name}
                                     </NavLink>
                                     <button className="edit__button"><NavLink className="nav__link" key={album.name} to={`/album/${album.id}/edit`}>Edit</NavLink></button>
-                                    <button className="delete__button">Delete</button>
                                 </div>
                             )
                         }

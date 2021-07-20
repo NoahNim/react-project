@@ -28,7 +28,7 @@ function CreateAlbum() {
                 if (data && data.errors) setErrors(data.errors);
             });
         console.log(errors.length);
-        if (errors.length === 0) return history.push('/')
+        if (errors.length === 0) return history.push('/album')
     }
 
     if (sessionUser) {

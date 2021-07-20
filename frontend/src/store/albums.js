@@ -2,7 +2,8 @@ import { csrfFetch } from "./csrf";
 
 const LOAD = 'albums/LOAD';
 const LOAD_ALBUM = 'album/LOAD_ALBUM';
-const NEW_ALBUM = 'album/new'
+const NEW_ALBUM = 'album/new';
+const DELETE_ALBUM = 'album/delete';
 
 const load = albums => ({
     type: LOAD,
@@ -16,6 +17,11 @@ const loadAlbum = photos => ({
 
 const makeAlbum = album => ({
     type: NEW_ALBUM,
+    album
+})
+
+const destroyAlbum = album => ({
+    type: DELETE_ALBUM,
     album
 })
 
@@ -51,6 +57,7 @@ export const createAlbum = (payload) => async dispatch => {
     return res;
 }
 
+
 export const updateAlbum = (id, payload) => async dispatch => {
     const { name, userId } = payload
 
@@ -81,6 +88,18 @@ export const getAlbum = (id) => async dispatch => {
     }
 }
 
+export const deleteAlbum = (id) => async dispatch => {
+    const res = await csrfFetch(`/api/album/${id}`, {
+        method: 'DELETE'
+    })
+    const albumRes = await fetch(`/api/album/${id}`);
+
+    if (res.ok) {
+        const album = await albumRes.json();
+        dispatch(destroyAlbum(album));
+    }
+}
+
 const AlbumReducer = (state = {}, action) => {
     console.log(action);
     let newState;
@@ -106,6 +125,11 @@ const AlbumReducer = (state = {}, action) => {
             }
         };
         case NEW_ALBUM: {
+            newState = Object.assign({}, state);
+            newState.albums = action.album;
+            return newState;
+        }
+        case DELETE_ALBUM: {
             newState = Object.assign({}, state);
             newState.albums = action.album;
             return newState;

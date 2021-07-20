@@ -68,7 +68,11 @@ router.put('/:id(\\d+)/edit', requireAuth, validateCreateAlbum, asyncHandler(asy
 //Delete Album
 
 router.delete('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
-    
+    let albumId = req.params.id;
+    const album = await db.Album.findByPk(albumId)
+
+    await album.destroy();
+    return res.json();
 }))
 
 module.exports = router;
