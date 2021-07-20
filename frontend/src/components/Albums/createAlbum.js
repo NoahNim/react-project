@@ -10,25 +10,34 @@ function CreateAlbum() {
     const sessionUser = useSelector(state => state.session.user);
     const history = useHistory();
     const [name, setName] = useState('')
+    const [errors, setErrors] = useState([]);
     const sessionUserId = sessionUser.id
  
     function handleSubmit(e) {
         e.preventDefault();
 
+        setErrors([]);
         const payload = {
             name,
             sessionUserId
         }
 
         dispatch(createAlbum(payload))
-
-        return history.push('/')
+            .catch(async (res) => {
+                const data = await res.json();
+                if (data && data.errors) setErrors(data.errors);
+            });
+        console.log(errors.length);
+        if (errors.length > 0) return history.push('/')
     }
 
     if (sessionUser) {
         return (
             <div className="form__container">
                 <form onSubmit={handleSubmit}>
+                    <ul>
+                        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                    </ul>
                     <label>Album Name
                         <input type="text" value={name} onChange={(e) => setName(e.target.value)} required></input>
                     </label>
