@@ -6,7 +6,9 @@ import './AlbumPage.css';
 
 function Album() {
     const { id } = useParams();
-
+    const photos = useSelector(state => state.albums);
+    const photoArr = Object.values(photos);
+    console.log(photoArr);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -15,7 +17,14 @@ function Album() {
 
     return (
         <div>
-            <h1></h1>
+            {photoArr.map(photo => {
+                return (
+                    <div>
+                        <h2>{photo.name}</h2>
+                        <img src={photo.imgUrl} height="100" width="100"></img>
+                    </div>
+                )
+            })}
         </div>
     )
 }
