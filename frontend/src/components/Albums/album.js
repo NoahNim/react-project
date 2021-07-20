@@ -15,7 +15,7 @@ function Album() {
 
     return (
         <div>
-            Test Text
+            <h1></h1>
         </div>
     )
 }

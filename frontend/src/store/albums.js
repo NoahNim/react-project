@@ -44,9 +44,9 @@ const AlbumReducer = (state = {}, action) => {
         };
         case LOAD_ALBUM: {
             const photos = {};
-            // action.albums.albums.forEach(user => {
-            //     photos[user.id] = user
-            // })
+            action.album.photos.forEach(photo => {
+                photos[photo.id] = photo
+            })
             return {
                 ...photos,
                 ...state

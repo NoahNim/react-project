@@ -16,8 +16,9 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     const album = await db.Album.findByPk(albumId, {
         include: db.User
     });
-    console.log(album);
-    return res.json({ album });
+    const photos = await db.Photo.findAll();
+    return res.json({ album, photos });
 }))
+
 
 module.exports = router;
