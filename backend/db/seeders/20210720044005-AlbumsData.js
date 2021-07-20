@@ -13,11 +13,11 @@ module.exports = {
       }], {});
     */
     return queryInterface.bulkInsert('Albums', [{
-      name: 'Test', userId: 1, createdAt: new Date(), updatedAt: new Date()
+      name: 'Test Album', userId: 1, createdAt: new Date(), updatedAt: new Date()
     }, {
-      name: 'Test 2', userId: 1, createdAt: new Date(), updatedAt: new Date()
+      name: 'Test Album 2', userId: 1, createdAt: new Date(), updatedAt: new Date()
     }, {
-      name: 'Test 3', userId: 1, createdAt: new Date(), updatedAt: new Date()
+      name: 'Test Album 3', userId: 2, createdAt: new Date(), updatedAt: new Date()
     }], {});
   },
 
