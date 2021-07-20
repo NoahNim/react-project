@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { getAlbums } from '../../store/albums';
 import './AlbumPage.css';
 
@@ -9,6 +9,7 @@ function AlbumsPage() {
     const albums = useSelector(state => state.albums);
     const sessionUser = useSelector(state => state.session.user);
     const albumArr = Object.values(albums);
+    const history = useHistory();
 
     useEffect(() => {
         dispatch(getAlbums());
@@ -17,6 +18,7 @@ function AlbumsPage() {
     if (sessionUser) {
         return (
             <div className="user__album__div">
+                <button>New Album</button>
                 <h3>Your Albums</h3>
                 {
                     albumArr.map((album) => {
@@ -25,8 +27,8 @@ function AlbumsPage() {
                                 <div>
                                     <NavLink className="nav__link" key={album.name} to={`/album/${album.id}`}>{album.name}
                                     </NavLink>
+                                    <button className="delete__button">Delete</button>
                                 </div>
-
                             )
                         }
                     })
@@ -40,13 +42,16 @@ function AlbumsPage() {
                                     <NavLink className="nav__link" key={album.name} to={`/album/${album.id}`}>{album.name}
                                     </NavLink>
                                 </div>
-
+                               
                             )
                         }
                     })
                 }
             </div>
         )
+    }
+    else {
+        history.push("/");
     }
 }
 
