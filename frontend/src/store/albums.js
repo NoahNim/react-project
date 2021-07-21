@@ -143,7 +143,7 @@ const AlbumReducer = (state = {albums: null, photo: null}, action) => {
         case UPDATE_ALBUM:
             return {
                 ...state,
-                ...action.albums
+                ...action.albums.album
             }
         default:
             return state;

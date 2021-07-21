@@ -21,16 +21,14 @@ function CreateAlbum() {
             name,
             sessionUserId
         }
-        await dispatch(createAlbum(payload))
+        const album = await dispatch(createAlbum(payload))
             .catch(async (res) => {
                 const data = await res.json();
-                console.log(data.errors);
                 setErrors(data.errors);
             });
-        console.log(errors.length);
-        // if (errors.length < 1) {
-        //     history.push('/album')
-        // }
+        if (album) {
+            history.push('/album')
+        }
     }
 
     if (sessionUser) {

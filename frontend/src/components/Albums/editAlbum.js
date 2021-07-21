@@ -13,7 +13,7 @@ function EditAlbum() {
     const [errors, setErrors] = useState([]);
     const sessionUserId = sessionUser.id
 
-    function handleSubmit(e) {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         setErrors([]);
@@ -22,14 +22,12 @@ function EditAlbum() {
             sessionUserId
         }
 
-        dispatch(updateAlbum(id, payload))
+        const album = await dispatch(updateAlbum(id, payload))
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
             });
-        console.log(errors.length);
-        if (errors.length < 1) history.push('/album')
-        
+        if (album) history.push('/album')   
     }
 
     if (sessionUser) {
