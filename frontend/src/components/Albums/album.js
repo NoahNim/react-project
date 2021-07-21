@@ -17,14 +17,13 @@ function Album() {
         dispatch(getAlbum(id));
     }, [dispatch, id]);
 
-    function handleDeletAlbum() {
-        dispatch(deleteAlbum(id))
-        return history.push('/album')
+    const handleDeletAlbum = async () => {
+        await dispatch(deleteAlbum(id))
+        history.push('/album')
     }
 
     return (
         <div>
-            <button hidden={!sessionUser && sessionUser.id !== album.album.id} className="delete__button" onClick={handleDeletAlbum}>Delete Album</button>
             {photoArr?.map(photo => {
                 if (photo?.albumId === Number(id)) {
                     return (
@@ -38,6 +37,7 @@ function Album() {
                     )
                 }
             })}
+            <button hidden={!sessionUser && sessionUser.id !== album.album.id} className="delete__button" onClick={handleDeletAlbum}>Delete Album</button>
         </div>
     )
 

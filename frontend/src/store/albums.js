@@ -107,9 +107,10 @@ const AlbumReducer = (state = {albums: null, photo: null}, action) => {
             action.albums.albums.forEach(album => {
                 allAlbums[album.id] = album;
             });
+            state.albums = allAlbums;
             return {
-                ...allAlbums,
-                ...state
+                // ...allAlbums,
+                ...state.albums
             }
         case LOAD_ALBUM:
             const photos = {};
@@ -117,6 +118,9 @@ const AlbumReducer = (state = {albums: null, photo: null}, action) => {
             action.photos.photos.forEach(photo => {
                 photos[photo.id] = photo
             })
+
+            // console.log(photos);
+            state.photo = photos
             return {
                 ...state.photo
             };
@@ -130,10 +134,10 @@ const AlbumReducer = (state = {albums: null, photo: null}, action) => {
             }
         case DELETE_ALBUM:
             delete action.payload
-            newState = {
-                ...state
+            return {
+                ...state,
+                ...action.payload
             }
-            return newState;
         default:
             return state;
     }
