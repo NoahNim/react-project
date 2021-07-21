@@ -6,6 +6,33 @@
     text-decoration: none;
 }
 
+.form__container {
+    margin-top: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.album__form {
+    background-color: rgb(91, 91, 247);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    border-radius: 10px;
+    padding: 32px;
+    justify-content: space-between;
+}
+
+
+.label {
+    width: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 .nav__link:visited {
     color:white
 }

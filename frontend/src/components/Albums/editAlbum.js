@@ -33,11 +33,11 @@ function EditAlbum() {
     if (sessionUser) {
         return (
             <div className="form__container">
-                <form onSubmit={handleSubmit}>
+                <form className="album__form"  onSubmit={handleSubmit}>
                     <ul>
                         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                     </ul>
-                    <label>New Album Name
+                    <label><div className="label">New Album Name</div>
                         <input type="text" value={name} onChange={(e) => setName(e.target.value)} required></input>
                     </label>
                     <button type="submit">Submit</button>
