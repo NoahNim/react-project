@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { getAlbums } from '../../store/albums';
 import './AlbumPage.css';
 
@@ -26,12 +26,12 @@ function AlbumsPage() {
                 <h3>Your Albums</h3>
                 {
                     albumArr.map((album) => {
-                        if (sessionUser.id === album.userId) {
+                        if (sessionUser.id === album?.userId) {
                             return (
                                 <div>
-                                    <NavLink className="nav__link" key={album.name} to={`/album/${album.id}`}>{album.name}
-                                    </NavLink>
-                                    <button className="edit__button"><NavLink className="nav__link" key={album.name} to={`/album/${album.id}/edit`}>Edit</NavLink></button>
+                                    <Link className="nav__link" key={album?.name} to={`/album/${album?.id}`}>{album?.name}
+                                    </Link>
+                                    <button className="edit__button"><Link className="nav__link" key={album?.name} to={`/album/${album?.id}/edit`}>Edit</Link></button>
                                 </div>
                             )
                         }
@@ -40,13 +40,13 @@ function AlbumsPage() {
                 <h3>Expore Other Users Albums</h3>
                 {
                     albumArr.map((album) => {
-                        if (sessionUser.id !== album.userId) {
+                        if (sessionUser.id !== album?.userId) {
                             return (
                                 <div>
-                                    <NavLink className="nav__link" key={album.name} to={`/album/${album.id}`}>{album.name}
-                                    </NavLink>
+                                    <Link className="nav__link" key={album?.name} to={`/album/${album?.id}`}>{album?.name}
+                                    </Link>
                                 </div>
-                               
+
                             )
                         }
                     })

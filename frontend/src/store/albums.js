@@ -15,14 +15,14 @@ const loadAlbum = photos => ({
     photos
 })
 
-const makeAlbum = album => ({
+const makeAlbum = albums => ({
     type: NEW_ALBUM,
-    album
+    albums
 })
 
-const destroyAlbum = album => ({
+const destroyAlbum = albums => ({
     type: DELETE_ALBUM,
-    album
+    payload: albums
 })
 
 export const getAlbums = () => async dispatch => {
@@ -36,9 +36,7 @@ export const getAlbums = () => async dispatch => {
     return;
 }
 
-export const createAlbum = (payload) => async dispatch => {
-    const { name, userId } = payload
-    
+export const createAlbum = ({name, userId}) => async dispatch => {    
     const res = await csrfFetch('/api/album/new', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -51,7 +49,7 @@ export const createAlbum = (payload) => async dispatch => {
     const newAlbum = await res.json();
 
     if (res.ok) {
-        dispatch(makeAlbum(newAlbum.payload));
+        dispatch(makeAlbum(newAlbum));
     }
 
     return res;
@@ -89,22 +87,22 @@ export const getAlbum = (id) => async dispatch => {
 }
 
 export const deleteAlbum = (id) => async dispatch => {
+    const albumRes = await fetch(`/api/album/${id}`);
+    const album = await albumRes.json();
     const res = await csrfFetch(`/api/album/${id}`, {
         method: 'DELETE'
     })
-    const albumRes = await fetch(`/api/album/${id}`);
 
-    if (res.ok) {
-        const album = await albumRes.json();
+       if (res.ok) {
         dispatch(destroyAlbum(album));
     }
 }
 
-const AlbumReducer = (state = {}, action) => {
+const AlbumReducer = (state = {albums: null, photo: null}, action) => {
     console.log(action);
     let newState;
     switch (action.type) {
-        case LOAD: {
+        case LOAD: 
             const allAlbums = {};
             action.albums.albums.forEach(album => {
                 allAlbums[album.id] = album;
@@ -113,27 +111,29 @@ const AlbumReducer = (state = {}, action) => {
                 ...allAlbums,
                 ...state
             }
-        };
-        case LOAD_ALBUM: {
+        case LOAD_ALBUM:
             const photos = {};
+
             action.photos.photos.forEach(photo => {
                 photos[photo.id] = photo
             })
             return {
-                ...photos,
+                ...state.photo
+            };
+        case NEW_ALBUM:
+            // newState = Object.assign({}, state);
+            // newState.albums = action.album;
+            // return newState;
+            return {
+                ...state,
+                ...action.albums
+            }
+        case DELETE_ALBUM:
+            delete action.payload
+            newState = {
                 ...state
             }
-        };
-        case NEW_ALBUM: {
-            newState = Object.assign({}, state);
-            newState.albums = action.album;
             return newState;
-        }
-        case DELETE_ALBUM: {
-            newState = {...state}
-            delete newState[action.album]
-            return newState
-        }
         default:
             return state;
     }

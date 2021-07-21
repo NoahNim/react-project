@@ -15,7 +15,7 @@ function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
-    return dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true))
+     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true))
   }, [dispatch])
   return (
     <>
@@ -26,10 +26,10 @@ function App() {
             <Route path="/" exact={true}>
               <Homepage />
             </Route>
-            <Route path="/login">
+            <Route path="/login" exact={true}>
               <LoginFormPage />
             </Route>
-            <Route path="/signup">
+            <Route path="/signup" exact={true}>
               <SignupFormPage />
             </Route>
             <Route path="/album" exact={true}>

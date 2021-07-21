@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { createAlbum } from '../../store/albums';
@@ -10,13 +10,17 @@ function CreateAlbum() {
     const sessionUser = useSelector(state => state.session.user);
     const history = useHistory();
     const [name, setName] = useState('')
-    const [errors, setErrors] = useState([]);
+    const [errors, setErrors] = useState(null);
     const sessionUserId = sessionUser.id
+
+    useEffect(() => {
+      if (errors?.length === 0) history.push('/album')  
+    }, [errors, history])
  
     function handleSubmit(e) {
         e.preventDefault();
 
-        setErrors([]);
+        setErrors(null);
         const payload = {
             name,
             sessionUserId
@@ -25,10 +29,14 @@ function CreateAlbum() {
         dispatch(createAlbum(payload))
             .catch(async (res) => {
                 const data = await res.json();
+                console.log(data.errors);
                 if (data && data.errors) setErrors(data.errors);
             });
-        console.log(errors.length);
-        if (errors.length === 0) return history.push('/album')
+        console.log(errors?.length);
+        // if (errors?.length === 0) {
+        //     history.push('/album')
+        // }
+        return;
     }
 
     if (sessionUser) {
@@ -36,7 +44,7 @@ function CreateAlbum() {
             <div className="form__container">
                 <form onSubmit={handleSubmit}>
                     <ul>
-                        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                        {errors?.map((error, idx) => <li key={idx}>{error}</li>)}
                     </ul>
                     <label>Album Name
                         <input type="text" value={name} onChange={(e) => setName(e.target.value)} required></input>

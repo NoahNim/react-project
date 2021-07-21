@@ -44,8 +44,8 @@ router.post('/new', requireAuth, validateCreateAlbum, asyncHandler(async (req, r
     })
 
     await album.save();
-
-    return res.json({ album })
+    console.log(album);
+    return res.json({ albums: album })
 }))
 
 //Edit Album

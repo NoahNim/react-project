@@ -28,7 +28,8 @@ function EditAlbum() {
                 if (data && data.errors) setErrors(data.errors);
             });
         console.log(errors.length);
-        if (errors.length === 0) return history.push('/album')
+        if (errors.length < 1) history.push('/album')
+        
     }
 
     if (sessionUser) {
