@@ -10,14 +10,14 @@ function CreateAlbum() {
     const sessionUser = useSelector(state => state.session.user);
     const history = useHistory();
     const [name, setName] = useState('')
-    const [errors, setErrors] = useState(null);
+    const [errors, setErrors] = useState([]);
     const sessionUserId = sessionUser.id
 
-    useEffect(() => {
-      if (errors?.length === 0) history.push('/album')  
-    }, [errors, history])
+    // useEffect(() => {
+    //   if (errors?.length === 0) history.push('/album')  
+    // }, [errors, history])
  
-    function handleSubmit(e) {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         setErrors(null);
@@ -25,18 +25,16 @@ function CreateAlbum() {
             name,
             sessionUserId
         }
-
-        dispatch(createAlbum(payload))
+        await dispatch(createAlbum(payload))
             .catch(async (res) => {
                 const data = await res.json();
                 console.log(data.errors);
                 if (data && data.errors) setErrors(data.errors);
             });
         console.log(errors?.length);
-        // if (errors?.length === 0) {
-        //     history.push('/album')
-        // }
-        return;
+        if (errors?.length < 1) {
+            history.push('/album')
+        }
     }
 
     if (sessionUser) {

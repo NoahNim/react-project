@@ -4,6 +4,7 @@ const LOAD = 'albums/LOAD';
 const LOAD_ALBUM = 'album/LOAD_ALBUM';
 const NEW_ALBUM = 'album/new';
 const DELETE_ALBUM = 'album/delete';
+const UPDATE_ALBUM = 'album/update';
 
 const load = albums => ({
     type: LOAD,
@@ -17,6 +18,11 @@ const loadAlbum = photos => ({
 
 const makeAlbum = albums => ({
     type: NEW_ALBUM,
+    albums
+})
+
+const editAlbum = albums => ({
+    type: UPDATE_ALBUM,
     albums
 })
 
@@ -68,10 +74,10 @@ export const updateAlbum = (id, payload) => async dispatch => {
         })
     });
 
-    const newAlbum = await res.json();
+    const editedAlbum = await res.json();
 
     if (res.ok) {
-        dispatch(makeAlbum(newAlbum.payload));
+        dispatch(editAlbum(editedAlbum));
     }
 
     return res;
@@ -125,9 +131,6 @@ const AlbumReducer = (state = {albums: null, photo: null}, action) => {
                 ...state.photo
             };
         case NEW_ALBUM:
-            // newState = Object.assign({}, state);
-            // newState.albums = action.album;
-            // return newState;
             return {
                 ...state,
                 ...action.albums
