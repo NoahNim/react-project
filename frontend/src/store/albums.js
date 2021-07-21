@@ -106,7 +106,6 @@ export const deleteAlbum = (id) => async dispatch => {
 
 const AlbumReducer = (state = {albums: null, photo: null}, action) => {
     console.log(action);
-    let newState;
     switch (action.type) {
         case LOAD: 
             const allAlbums = {};
@@ -140,6 +139,11 @@ const AlbumReducer = (state = {albums: null, photo: null}, action) => {
             return {
                 ...state,
                 ...action.payload
+            }
+        case UPDATE_ALBUM:
+            return {
+                ...state,
+                ...action.albums
             }
         default:
             return state;

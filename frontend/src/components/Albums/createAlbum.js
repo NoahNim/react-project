@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { createAlbum } from '../../store/albums';
@@ -12,15 +12,11 @@ function CreateAlbum() {
     const [name, setName] = useState('')
     const [errors, setErrors] = useState([]);
     const sessionUserId = sessionUser.id
-
-    // useEffect(() => {
-    //   if (errors?.length === 0) history.push('/album')  
-    // }, [errors, history])
  
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        setErrors(null);
+        // setErrors([]);
         const payload = {
             name,
             sessionUserId
@@ -29,12 +25,12 @@ function CreateAlbum() {
             .catch(async (res) => {
                 const data = await res.json();
                 console.log(data.errors);
-                if (data && data.errors) setErrors(data.errors);
+                setErrors(data.errors);
             });
-        console.log(errors?.length);
-        if (errors?.length < 1) {
-            history.push('/album')
-        }
+        console.log(errors.length);
+        // if (errors.length < 1) {
+        //     history.push('/album')
+        // }
     }
 
     if (sessionUser) {
