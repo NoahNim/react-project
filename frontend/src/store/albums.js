@@ -114,7 +114,7 @@ const AlbumReducer = (state = {albums: null, photo: null}, action) => {
             });
             state.albums = allAlbums;
             return {
-                // ...allAlbums,
+                ...state.photo,
                 ...state.albums
             }
         case LOAD_ALBUM:

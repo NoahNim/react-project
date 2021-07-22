@@ -21,14 +21,14 @@ function AlbumsPage() {
 
     if (sessionUser) {
         return (
-            <div className="user__album__div">
-                <button onClick={newDirect}>New Album</button>
+            <div className="album__div">
+                <button className="new__album__button" onClick={newDirect}>New Album</button>
                 <h3>Your Albums</h3>
                 {
                     albumArr.map((album) => {
                         if (sessionUser.id === album?.userId) {
                             return (
-                                <div>
+                                <div className="user__album__div">
                                     <Link className="nav__link" key={album?.name} to={`/album/${album?.id}`}>{album?.name}
                                     </Link>
                                     <button className="edit__button"><Link className="nav__link" key={album?.name} to={`/album/${album?.id}/edit`}>Edit</Link></button>
@@ -42,7 +42,7 @@ function AlbumsPage() {
                     albumArr.map((album) => {
                         if (sessionUser.id !== album?.userId) {
                             return (
-                                <div>
+                                <div className="other__album__div">
                                     <Link className="nav__link" key={album?.name} to={`/album/${album?.id}`}>{album?.name}
                                     </Link>
                                 </div>

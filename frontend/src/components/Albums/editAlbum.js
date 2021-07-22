@@ -37,7 +37,7 @@ function EditAlbum() {
                     <ul>
                         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                     </ul>
-                    <label><div className="label">New Album Name</div>
+                    <label><div className="label">Edit Album Name</div>
                         <input type="text" value={name} onChange={(e) => setName(e.target.value)} required></input>
                     </label>
                     <button type="submit">Submit</button>
