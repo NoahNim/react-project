@@ -25,24 +25,6 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     const photoId = req.params.id;
     const photos = await db.Photo.findByPk(photoId);
     return res.json({ photos });
-}))
-
-//Create A New Photo
-router.post('/new', requireAuth, validateCreatePhoto, asyncHandler(async (req, res) => {
-    let albumId = req.params.id;
-    let userId = req.user.id
-    const { name, imgUrl } = req.body;
-
-    const photo = await db.Photo.build({
-        name,
-        imgUrl,
-        userId,
-        albumId
-    })
-
-    await photo.save();
-    console.log(album);
-    return res.json({ photos: photo })
 }));
 
 //Edit a Photo

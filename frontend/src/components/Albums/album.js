@@ -21,10 +21,15 @@ function Album() {
         history.push('/album')
     }
 
+    function newDirect() {
+        history.push(`album/${id}/new-photo`)
+    }
+
     if (!sessionUser) history.push("/");
 
     return (
         <div className="album__div">
+            <button className="new__photo__buttone" onClick={newDirect}>Add Photo</button>
             {photoArr?.map(photo => {
                 if (photo?.albumId === Number(id)) {
                     return (
