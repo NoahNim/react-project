@@ -40,6 +40,27 @@ export const getPhoto = (id) => async dispatch => {
     }
 }
 
+export const createPhoto = ({ name, imgUrl, userId, albumId }) => async dispatch => {
+    const res = await csrfFetch(`/api/photo/album/${albumId}/new-photo`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            name,
+            imgUrl,
+            userId,
+            albumId
+        })
+    });
+
+    const newPhoto = await res.json();
+
+    if (res.ok) {
+        dispatch(makePhoto(newPhoto));
+    }
+
+    return res;
+}
+
 const PhotoReducer = (state = { photo: null, comments: null }, action) => {
     switch (action.type) {
         case LOAD:
