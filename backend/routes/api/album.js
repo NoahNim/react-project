@@ -16,18 +16,6 @@ const validateCreateAlbum = [
     handleValidationErrors
 ]
 
-const validateCreatePhoto = [
-    check('name')
-        .exists({ checkFalsy: true })
-        .withMessage('Please enter a valid name')
-        .isLength({ min: 3 })
-        .withMessage('Please make the name of your photo at least 3 characters in length'),
-    check('imgUrl')
-        .exists({ checkFalsy: true })
-        .withMessage('Please put in a url'),
-    handleValidationErrors
-]
-
 
 //List Albums
 router.get('/', asyncHandler(async (req, res) => {
@@ -87,23 +75,6 @@ router.delete('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
     await album.destroy();
     return res.json();
 }))
-
-//Create A New Photo
-router.post('/:id(\\d+)/new-photo', requireAuth, validateCreatePhoto, asyncHandler(async (req, res) => {
-    let albumId = req.params.id;
-    let userId = req.user.id
-    const { name, imgUrl } = req.body;
-
-    const photo = await db.Photo.build({
-        name,
-        imgUrl,
-        userId,
-        albumId
-    })
-
-    await photo.save();
-    return res.json({ photos: photo })
-}));
 
 
 module.exports = router;

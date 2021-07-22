@@ -11,6 +11,7 @@ import Album from './components/Albums/album';
 import CreateAlbum from './components/Albums/createAlbum';
 import EditAlbum from './components/Albums/editAlbum';
 import Photo from './components/Photos/index';
+import NewPhoto from './components/Photos/createPhoto';
 
 function App() {
   const dispatch = useDispatch();
@@ -47,6 +48,9 @@ function App() {
             </Route>
             <Route path="/photo/:id" exact={true}>
               <Photo />
+            </Route>
+            <Route path="/photo/album/:id/new-photo" exact={true}>
+              <NewPhoto />
             </Route>
           </Switch>
         )

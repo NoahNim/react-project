@@ -22,7 +22,7 @@ function Album() {
     }
 
     function newDirect() {
-        history.push(`album/${id}/new-photo`)
+        history.push(`/photo/album/${id}/new-photo`)
     }
 
     if (!sessionUser) history.push("/");

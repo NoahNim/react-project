@@ -27,6 +27,24 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     return res.json({ photos });
 }));
 
+//newPhoto
+router.post('/album/:id(\\d+)/new-photo', requireAuth, validateCreatePhoto, asyncHandler(async (req, res) => {
+    let albumId = req.params.id;
+    let userId = req.user.id
+    const { name, imgUrl } = req.body;
+
+    const photo = await db.Photo.build({
+        name,
+        imgUrl,
+        userId,
+        albumId
+    })
+
+    await photo.save();
+    return res.json({ photos: photo })
+}));
+
+
 //Edit a Photo
 router.put('/:id(\\d+)/edit', requireAuth, validateCreatePhoto, asyncHandler(async (req, res) => {
     let photoId = req.params.id;
