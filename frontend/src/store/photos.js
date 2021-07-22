@@ -31,7 +31,7 @@ const destroyPhoto = photo => ({
     payload: photo
 })
 
-export const getphoto = (id) => async dispatch => {
+export const getPhoto = (id) => async dispatch => {
     const res = await fetch(`/api/photo/${id}`);
 
     if (res.ok) {
@@ -56,3 +56,5 @@ const PhotoReducer = (state = { photo: null, comments: null }, action) => {
             return state;
     }
 }
+
+export default PhotoReducer;
