@@ -13,12 +13,16 @@ module.exports = {
       }], {});
     */
     return queryInterface.bulkInsert('Albums', [{
-      name: 'Test Album', userId: 1, createdAt: new Date(), updatedAt: new Date()
+      name: 'Fantasy', userId: 1, createdAt: new Date(), updatedAt: new Date()
     }, {
-      name: 'Test Album 2', userId: 1, createdAt: new Date(), updatedAt: new Date()
+      name: 'Kittens', userId: 1, createdAt: new Date(), updatedAt: new Date()
     }, {
-      name: 'Test Album 3', userId: 2, createdAt: new Date(), updatedAt: new Date()
-    }], {});
+      name: 'Random', userId: 2, createdAt: new Date(), updatedAt: new Date()
+      }, {
+        name: 'Random', userId: 1, createdAt: new Date(), updatedAt: new Date()
+      }, {
+        name: 'Pizza Album', userId: 3, createdAt: new Date(), updatedAt: new Date()
+      }]);
   },
 
   down: (queryInterface, Sequelize) => {
