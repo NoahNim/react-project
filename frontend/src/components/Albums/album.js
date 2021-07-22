@@ -23,21 +23,21 @@ function Album() {
     }
 
     return (
-        <div>
+        <div className="album__div">
             {photoArr?.map(photo => {
                 if (photo?.albumId === Number(id)) {
                     return (
-                        <div>
+                        <div className="photo__list">
                             <div>
                                 <h2 key={photo?.name}>{photo?.name}</h2>
                                 <img key={photo?.id} src={photo?.imgUrl} alt="meow" height="100" width="100"></img>
                             </div>
-                            <button className="delete__button">Delete</button>
+                            <button hidden={sessionUser.id !== album.userId} className="delete__button">Delete</button>
                         </div>
                     )
                 }
             })}
-            <button hidden={!sessionUser && sessionUser.id !== album.album.id} className="delete__button" onClick={handleDeletAlbum}>Delete Album</button>
+            <button hidden={sessionUser.id !== album.userId} className="delete__button" onClick={handleDeletAlbum}>Delete Album</button>
         </div>
     )
 

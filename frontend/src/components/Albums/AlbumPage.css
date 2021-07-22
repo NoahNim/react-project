@@ -45,6 +45,13 @@
     color: white;
 }
 
+.photo__list {
+    margin-top: 10px;
+    background-color: #2F089B;
+    border-radius: 6px;
+    padding: 15px;
+}
+
 .album__form {
     background-color: rgb(91, 91, 247);
     display: flex;
