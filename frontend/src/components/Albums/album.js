@@ -30,18 +30,17 @@ function Album() {
                         <div className="photo__list">
                             <div>
                                 <h2 key={photo?.name}>{photo?.name}</h2>
-                                <img key={photo?.id} src={photo?.imgUrl} alt="meow" height="100" width="100"></img>
+                                <img key={photo?.id} src={photo?.imgUrl} alt="meow" height="100" width="140"></img>
                             </div>
-                            <button hidden={sessionUser.id !== album.userId} className="delete__button">Delete</button>
+                            <button hidden={sessionUser.id !== photo?.userId} className="delete__button photo__delete">Delete</button>
                         </div>
                     )
                 }
             })}
-            <button hidden={sessionUser.id !== album.userId} className="delete__button" onClick={handleDeletAlbum}>Delete Album</button>
+            <button className="delete__button" onClick={handleDeletAlbum}>Delete Album</button>
         </div>
     )
-
-
 }
 
+// hidden = { sessionUser.id !== album.albums?.userId }
 export default Album;

@@ -71,7 +71,18 @@
     font-size: 0.3em;
     align-items: center;
 }
+.delete__button {
+    background-color: #940051;
+    border-radius: 7px;
+    padding: 2px;
+    font-size: 0.3em;
+    align-items: center;
+    color: white;
+}
 
+.photo__delete {
+    margin-left: 100px;
+}
 
 .label {
     width: 150px;
