@@ -19,6 +19,8 @@ function AlbumsPage() {
         history.push("/album/new")
     }
 
+    if (!sessionUser) history.push('/');
+
     if (sessionUser) {
         return (
             <div className="album__div">
@@ -36,6 +38,7 @@ function AlbumsPage() {
                                 </div>
                             )
                         }
+                        return 'success!'
                     })
                     }
                 </div>
@@ -52,6 +55,7 @@ function AlbumsPage() {
 
                             )
                         }
+                        return 'success!';
                     })
                     }
                 </div>

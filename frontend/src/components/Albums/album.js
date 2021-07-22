@@ -11,7 +11,6 @@ function Album() {
     const photoArr = Object.values(photos);
     const dispatch = useDispatch();
     const history = useHistory();
-    const album = useSelector(state => state.albums);
 
     useEffect(() => {
         dispatch(getAlbum(id));
@@ -21,6 +20,8 @@ function Album() {
         await dispatch(deleteAlbum(id))
         history.push('/album')
     }
+
+    if (!sessionUser) history.push("/");
 
     return (
         <div className="album__div">
@@ -36,6 +37,7 @@ function Album() {
                         </div>
                     )
                 }
+                return 'success!';
             })}
             <button className="delete__button" onClick={handleDeletAlbum}>Delete Album</button>
         </div>
