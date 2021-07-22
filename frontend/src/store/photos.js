@@ -1,10 +1,10 @@
 import { csrfFetch } from "./csrf";
 
 const LOAD = 'photo/LOAD';
-const LOAD_photo = 'photo/LOAD_photo';
-const NEW_photo = 'photo/new';
-const DELETE_photo = 'photo/delete';
-const UPDATE_photo = 'photo/update';
+const LOAD_PHOTO = 'photo/LOAD_photo';
+const NEW_PHOTO = 'photo/new';
+const DELETE_PHOTO = 'photo/delete';
+const UPDATE_PHOTO = 'photo/update';
 
 const load = photo => ({
     type: LOAD,
@@ -12,22 +12,22 @@ const load = photo => ({
 });
 
 const loadPhoto = photo => ({
-    type: LOAD_photo,
+    type: LOAD_PHOTO,
     photo
 })
 
 const makePhoto = photo => ({
-    type: NEW_photo,
+    type: NEW_PHOTO,
     photo
 })
 
 const editPhoto = photo => ({
-    type: UPDATE_photo,
+    type: UPDATE_PHOTO,
     photo
 })
 
 const destroyPhoto = photo => ({
-    type: DELETE_photo,
+    type: DELETE_PHOTO,
     payload: photo
 })
 
@@ -72,6 +72,11 @@ const PhotoReducer = (state = { photo: null, comments: null }, action) => {
             return {
                 ...state.photo,
                 ...state.comments
+            }
+        case NEW_PHOTO:
+            return {
+                ...state,
+                ...action.photo
             }
         default:
             return state;
