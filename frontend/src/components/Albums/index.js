@@ -38,7 +38,7 @@ function AlbumsPage() {
                                 </div>
                             )
                         }
-                        return 'success!'
+                        return null;
                     })
                     }
                 </div>
@@ -55,7 +55,7 @@ function AlbumsPage() {
 
                             )
                         }
-                        return 'success!';
+                        return null;
                     })
                     }
                 </div>
