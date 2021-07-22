@@ -41,7 +41,7 @@ function CreateAlbum() {
                     <label><div className="label">Album Name</div>
                         <input type="text" value={name} onChange={(e) => setName(e.target.value)} required></input>
                     </label>
-                    <button type="submit">Submit</button>
+                    <button type="submit" className="submit">Submit</button>
                 </form>
             </div>
         )

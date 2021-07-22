@@ -5,17 +5,29 @@
     align-items: center;
     color: white;
     text-decoration: none;
-    background-color: rgb(91, 91, 247);
+    background-color: #073A96;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     height: 500px;
+    border-radius: 6px;
+}
+
+.user__albums__title {
+    align-items: center;
+    margin-left: 90px;
 }
 
 .user__album__div {
     margin-top: 10px;
+    background-color: #2F089B;
+    border-radius: 6px;
+    padding: 10px;
 }
 
 .other__album__div {
     margin-top: 10px;
+    background-color: #2F089B;
+    border-radius: 6px;
+    padding: 10px;
 }
 
 .form__container {
@@ -38,7 +50,7 @@
 }
 
 .edit__button {
-    background-color: rgb(174, 82, 232);
+    background-color: #572ECB;
     border-radius: 7px;
     padding: 2px;
     margin-left: 10px;
@@ -66,5 +78,5 @@ a {
     box-sizing: border-box;
     border-radius: 7px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: rgb(47, 169, 33);
+    background-color: #00CD59
 }

@@ -23,12 +23,13 @@ function AlbumsPage() {
         return (
             <div className="album__div">
                 <button className="new__album__button" onClick={newDirect}>New Album</button>
-                <h3>Your Albums</h3>
+                <div className="user__album__div">
+                <h3 className="user__albums__title">Your Albums</h3>
                 {
                     albumArr.map((album) => {
                         if (sessionUser.id === album?.userId) {
                             return (
-                                <div className="user__album__div">
+                                <div className="albums__list">
                                     <Link className="nav__link" key={album?.name} to={`/album/${album?.id}`}>{album?.name}
                                     </Link>
                                     <button className="edit__button"><Link className="nav__link" key={album?.name} to={`/album/${album?.id}/edit`}>Edit</Link></button>
@@ -36,13 +37,15 @@ function AlbumsPage() {
                             )
                         }
                     })
-                }
-                <h3>Expore Other Users Albums</h3>
+                    }
+                </div>
+                <div className="other__album__div">
+                    <h3>Expore Other Users Albums</h3>                    
                 {
                     albumArr.map((album) => {
                         if (sessionUser.id !== album?.userId) {
                             return (
-                                <div className="other__album__div">
+                                <div className="albums__list">
                                     <Link className="nav__link" key={album?.name} to={`/album/${album?.id}`}>{album?.name}
                                     </Link>
                                 </div>
@@ -50,7 +53,8 @@ function AlbumsPage() {
                             )
                         }
                     })
-                }
+                    }
+                </div>
             </div>
         )
     }

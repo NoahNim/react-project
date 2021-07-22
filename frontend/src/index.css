@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(82, 80, 80);
+    background-color: #0B4CC4;
     color: white;
     text-decoration: none;
 }
@@ -7,4 +7,15 @@ body {
 a {
     text-decoration: none;
     color: white;
+}
+
+input {
+    border-radius: 6px;
+}
+
+.submit{
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #00CD59
 }
