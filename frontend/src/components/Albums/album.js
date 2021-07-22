@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory, Link } from 'react-router-dom';
 import { getAlbum, deleteAlbum } from '../../store/albums';
 import './AlbumPage.css';
 
@@ -31,7 +31,9 @@ function Album() {
                         <div className="photo__list">
                             <div>
                                 <h2 key={photo?.name}>{photo?.name}</h2>
-                                <img key={photo?.id} src={photo?.imgUrl} alt="meow" height="100" width="140"></img>
+                                <Link to={`/photo/${photo?.id}`}>
+                                    <img key={photo?.id} src={photo?.imgUrl} alt="meow" height="100" width="140"></img>
+                                </Link>
                             </div>
                             <button hidden={sessionUser.id !== photo?.userId} className="delete__button photo__delete">Delete</button>
                         </div>
