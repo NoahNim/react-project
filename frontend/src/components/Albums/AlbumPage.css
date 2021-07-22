@@ -1,0 +1,107 @@
+.album__div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    background-color: #073A96;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: 500px;
+    border-radius: 6px;
+}
+
+.user__albums__title {
+    align-items: center;
+    margin-left: 90px;
+}
+
+.user__album__div {
+    margin-top: 10px;
+    background-color: #2F089B;
+    border-radius: 6px;
+    padding: 15px;
+}
+
+.albums__list {
+    background-color: #3E0DC8;
+    margin-top: 15px;
+    border-radius: 6px;
+    padding: 8px;
+}
+
+.other__album__div {
+    margin-top: 10px;
+    background-color: #2F089B;
+    border-radius: 6px;
+    padding: 15px;
+}
+
+.form__container {
+    margin-top: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.photo__list {
+    margin-top: 10px;
+    background-color: #2F089B;
+    border-radius: 6px;
+    padding: 15px;
+}
+
+.album__form {
+    background-color: rgb(91, 91, 247);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    border-radius: 10px;
+    padding: 32px;
+    justify-content: space-between;
+}
+
+.edit__button {
+    background-color: #572ECB;
+    border-radius: 7px;
+    padding: 2px;
+    margin-left: 10px;
+    font-size: 0.3em;
+    align-items: center;
+}
+.delete__button {
+    background-color: #940051;
+    border-radius: 7px;
+    padding: 2px;
+    font-size: 0.3em;
+    align-items: center;
+    color: white;
+}
+
+.photo__delete {
+    margin-left: 100px;
+}
+
+.label {
+    width: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    margin-left: 0px;
+    width: 20px;
+    margin-right: 10px;
+}
+
+.new__album__button {
+    box-sizing: border-box;
+    border-radius: 7px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #00CD59
+}
