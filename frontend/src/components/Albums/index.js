@@ -51,7 +51,7 @@ function AlbumsPage() {
                                 <div className="albums__list">
                                     <Link className="nav__link" key={album?.name} to={`/album/${album?.id}`}>{album?.name}
                                     </Link>
-                                    <p>Added by: {album?.User?.username}</p>
+                                    <p className="added__by">Added by: {album?.User?.username}</p>
                                 </div>
 
                             )
