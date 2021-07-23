@@ -23,8 +23,8 @@ const validateCreatePhoto = [
 //Show A Photo
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     const photoId = req.params.id;
-    const photos = await db.Photo.findByPk(photoId);
-    return res.json({ photos });
+    const photo = await db.Photo.findByPk(photoId);
+    return res.json({ photo });
 }));
 
 //New Photo

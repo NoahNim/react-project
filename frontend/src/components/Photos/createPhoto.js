@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { createPhoto } from '../../store/photos';
+import { createPhoto } from '../../store/albums';
 
 function NewPhoto() {
     const dispatch = useDispatch();

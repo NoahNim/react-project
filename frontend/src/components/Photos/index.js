@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
-import { getPhoto, deletePhoto } from '../../store/photos';
+import { getPhoto, deletePhoto } from '../../store/albums';
 
 function Photo() {
     const { id } = useParams();
