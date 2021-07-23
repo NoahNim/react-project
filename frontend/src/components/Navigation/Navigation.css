@@ -16,6 +16,7 @@ nav {
     margin-left: 10px;
     text-decoration: none;
     color: black;
+    position: relative
 }
 
 .dropdown {
@@ -31,12 +32,14 @@ ul {
 
 .profile__button {
     margin-left: 10px;
+    margin-top: 20px;
 }
 
 .open__nav {
-    width: 50px;
-    background-color: #BCCEA0;
-    border-radius: 7px;
+    width: 0px;
+    background-color: #E0D6AE;
+    border: none;
+    border-radius: 0px;
     position: absolute;
 }
 
