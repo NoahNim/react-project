@@ -47,7 +47,7 @@ function Album() {
                     return null;
                 })}
             </div>
-            <button className="delete__button" onClick={handleDeletAlbum}>Delete Album</button>
+            <button hidden={sessionUser.id !== Number(id) ? true : false} className="delete__button" onClick={handleDeletAlbum}>Delete Album</button>
         </div>
     )
 }
