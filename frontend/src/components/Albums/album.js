@@ -12,22 +12,24 @@ function Album() {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const userId = photoArr.filter(photo => sessionUser?.id === photo?.id);
+    // const userId = photoArr.filter(photo => sessionUser?.id === photo?.id);
+    // console.log(userId)
+
 
     useEffect(() => {
         dispatch(getAlbum(id));
     }, [dispatch, id]);
 
     const handleDeletAlbum = async () => {
-        if (userId !== null ) {
+        // if (userId !== null ) {
             await dispatch(deleteAlbum(id))
             history.push('/album')
-        }
-        else {
-            <h1>
-                Seriously, stop trying to hack the website
-            </h1>
-        }
+        // }
+        // else {
+            // <h1>
+            //     Seriously, stop trying to hack the website
+            // </h1>
+        // }
     }
 
     function newDirect() {
@@ -39,7 +41,7 @@ function Album() {
     return (
         <div>
             <div className="one__album__div">
-                <button hidden={sessionUser.id !== Number(id) ? true : false}  className="new__photo__button" onClick={newDirect}>Add Photo</button>
+                <button className="new__photo__button" onClick={newDirect}>Add Photo</button>
                 {photoArr?.map(photo => {
                     if (photo?.albumId === Number(id)) {
                         return (
@@ -56,7 +58,7 @@ function Album() {
                     return null;
                 })}
             </div>
-            <button hidden={sessionUser.id !== Number(id) ? true : false} className="delete__button" onClick={handleDeletAlbum}>Delete Album</button>
+            <button className="delete__button" onClick={handleDeletAlbum}>Delete Album</button>
         </div>
     )
 }
