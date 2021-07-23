@@ -24,8 +24,8 @@ function AlbumsPage() {
     if (sessionUser) {
         return (
             <div className="album__div">
-                <button className="new__album__button" onClick={newDirect}>New Album</button>
                 <div className="user__album__div">
+                    <button className="new__album__button" onClick={newDirect}>New Album</button>
                 <h3 className="user__albums__title">Your Albums</h3>
                 {
                     albumArr.map((album) => {
