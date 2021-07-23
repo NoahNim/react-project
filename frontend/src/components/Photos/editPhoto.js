@@ -32,7 +32,7 @@ function EditPhoto() {
                 setErrors(data.errors);
             });
         if (photo) {
-            history.push(`/album/`)
+            history.go(-1);
         }
     }
 

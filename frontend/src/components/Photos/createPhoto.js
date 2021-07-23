@@ -19,7 +19,7 @@ function NewPhoto() {
 
         let albumId = Number(id);
 
-        // setErrors([]);
+        setErrors([]);
         const payload = {
             name,
             imgUrl,

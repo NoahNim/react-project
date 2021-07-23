@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useHistory } from 'react-router-dom';
 import { getPhoto, deletePhoto } from '../../store/albums';
 
 function Photo() {
@@ -9,6 +9,7 @@ function Photo() {
     const sessionUser = useSelector(state => state.session.user);
     const photoArr = Object.values(currPhoto);
     const dispatch = useDispatch();
+    const history = useHistory();
 
     useEffect(() => {
         dispatch(getPhoto(id));
@@ -16,6 +17,7 @@ function Photo() {
 
     const handleDeletPhoto = async () => {
         await dispatch(deletePhoto(id))
+        history.go(-1);
     }
 
     return (
