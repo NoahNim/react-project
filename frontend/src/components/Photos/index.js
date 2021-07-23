@@ -31,7 +31,7 @@ function Photo() {
                                 <div className="user__photo__div">
                                     <h2 key={photo?.name}>{photo?.name}</h2>
                                     <img key={photo?.id} src={photo?.imgUrl} alt="meow" height="100" width="140"></img>
-                                    <p> Uploaded by: {photo.User.username}</p>
+                                    <p className="added__by"> Uploaded by: {photo.User.username}</p>
                                 </div>
                                 <button hidden={sessionUser.id !== photo?.userId} className="edit__button"><Link className="nav__link" key={photo?.name} to={`/photo/${photo?.id}/edit`}>Edit</Link></button>
                                 <button hidden={sessionUser.id !== photo?.userId} className="delete__button photo__delete" onClick={handleDeletPhoto}>Delete</button>

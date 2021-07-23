@@ -19,7 +19,9 @@ const validateCreateAlbum = [
 
 //List Albums
 router.get('/', asyncHandler(async (req, res) => {
-    const albums = await db.Album.findAll();
+    const albums = await db.Album.findAll({
+        include: db.User
+    });
     
     return res.json({ albums });
 }));

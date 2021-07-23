@@ -1,7 +1,7 @@
 nav {
     display: inline-flex;
     flex-direction: column;
-    background-color: rgb(91, 91, 247);
+    background-color: #E0D6AE;
     width: 200px;
     height: 150px;
     margin: 0px;
@@ -16,12 +16,11 @@ nav {
     margin-left: 10px;
     text-decoration: none;
     color: black;
-    background-color: #BCCEA0;
 }
 
 .dropdown {
-   height: 400px;
-   background-color: rgb(91, 91, 247);
+   height: 200px;
+   background-color: #E0D6AE;
    border-bottom-left-radius: 10px;
    border-bottom-right-radius: 10px;
 }
@@ -36,7 +35,7 @@ ul {
 
 .open__nav {
     width: 50px;
-    background-color: rgb(208, 129, 220);
+    background-color: #BCCEA0;
     border-radius: 7px;
     position: absolute;
 }

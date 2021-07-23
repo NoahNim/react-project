@@ -5,7 +5,7 @@
     align-items: center;
     color: white;
     text-decoration: none;
-    background-color: #073A96;
+     background-color: #E0DDAE;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     height: 500px;
     border-radius: 6px;
@@ -20,13 +20,13 @@
 
 .user__album__div {
     margin-top: 10px;
-    background-color: #2F089B;
+   background-color: #ACA97D;
     border-radius: 6px;
     padding: 15px;
 }
 
 .albums__list {
-    background-color: #3E0DC8;
+    background-color: #E0E0AE;
     margin-top: 15px;
     border-radius: 6px;
     padding: 8px;
@@ -34,7 +34,7 @@
 
 .other__album__div {
     margin-top: 10px;
-    background-color: #2F089B;
+   background-color: #ACA97D;
     border-radius: 6px;
     padding: 15px;
 }
@@ -49,13 +49,13 @@
 
 .photo__list {
     margin-top: 10px;
-    background-color: #2F089B;
+   background-color: #ACA97D;
     border-radius: 6px;
     padding: 15px;
 }
 
 .album__form {
-    background-color: rgb(91, 91, 247);
+    background-color: #ACA97D;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -108,5 +108,9 @@ a {
     box-sizing: border-box;
     border-radius: 7px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: #00CD59
+     background-color: #ACA97D;
+}
+
+.added__by {
+    font-size: 2px;
 }
