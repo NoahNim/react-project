@@ -40,6 +40,28 @@ export const getPhoto = (id) => async dispatch => {
     }
 }
 
+export const updatePhoto = (id, payload) => async dispatch => {
+    const { name, imgUrl, userId } = payload
+
+    const res = await csrfFetch(`/api/photo/${id}/edit`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            name,
+            imgUrl,
+            userId
+        })
+    });
+
+    const editedPhoto = await res.json();
+
+    if (res.ok) {
+        dispatch(editPhoto(editedPhoto));
+    }
+
+    return res;
+}
+
 export const createPhoto = ({ name, imgUrl, userId, albumId }) => async dispatch => {
     const res = await csrfFetch(`/api/photo/album/${albumId}/new-photo`, {
         method: 'POST',
@@ -77,6 +99,11 @@ const PhotoReducer = (state = { photo: null, comments: null }, action) => {
             return {
                 ...state,
                 ...action.photo
+            }
+        case UPDATE_PHOTO:
+            return {
+                ...state,
+                ...action.photo.photo
             }
         default:
             return state;

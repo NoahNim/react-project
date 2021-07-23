@@ -28,25 +28,26 @@ function Album() {
     if (!sessionUser) history.push("/");
 
     return (
-        <div className="album__div">
+        <div>
             <button className="new__photo__buttone" onClick={newDirect}>Add Photo</button>
-            {photoArr?.map(photo => {
-                if (photo?.albumId === Number(id)) {
-                    return (
-                        <div className="photo__list">
-                            <div>
-                                <h2 key={photo?.name}>{photo?.name}</h2>
-                                <Link to={`/photo/${photo?.id}`}>
-                                    <img key={photo?.id} src={photo?.imgUrl} alt="meow" height="100" width="140"></img>
-                                </Link>
+            <div className="album__div"> 
+                {photoArr?.map(photo => {
+                    if (photo?.albumId === Number(id)) {
+                        return (
+                            <div className="photo__list">
+                                <div>
+                                    {/* <h2 key={photo?.name}>{photo?.name}</h2> */}
+                                    <Link to={`/photo/${photo?.id}`}>
+                                        <img key={photo?.id} src={photo?.imgUrl} alt="meow" height="100" width="140"></img>
+                                    </Link>
+                                </div>
                             </div>
-                            <button hidden={sessionUser.id !== photo?.userId} className="delete__button photo__delete">Delete</button>
-                        </div>
-                    )
-                }
-                return null;
-            })}
-            <button className="delete__button" onClick={handleDeletAlbum}>Delete Album</button>
+                        )
+                    }
+                    return null;
+                })}
+                <button className="delete__button" onClick={handleDeletAlbum}>Delete Album</button>
+            </div>
         </div>
     )
 }
