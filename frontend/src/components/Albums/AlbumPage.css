@@ -44,7 +44,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: white;
+    color: black;
 }
 
 .photo__list {
@@ -66,7 +66,8 @@
 }
 
 .edit__button {
-    background-color: #572ECB;
+    color: black;
+    background-color: #BCCEA0;
     border-radius: 7px;
     padding: 2px;
     margin-left: 10px;
@@ -74,7 +75,9 @@
     align-items: center;
 }
 .delete__button {
-    background-color: #940051;
+    /* background-color: #940051; */
+    color: black;
+    background-color: #BCCEA0;
     border-radius: 7px;
     padding: 2px;
     font-size: 0.3em;
