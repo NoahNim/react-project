@@ -46,7 +46,7 @@ function AlbumsPage() {
                     <h3>Expore Other Users Albums</h3>                    
                 {
                     albumArr.map((album) => {
-                        if (sessionUser.id !== album?.userId) {
+                        if (sessionUser.id !== album?.userId && album !== undefined) {
                             return (
                                 <div className="albums__list">
                                     <Link className="nav__link" key={album?.name} to={`/album/${album?.id}`}>{album?.name}
