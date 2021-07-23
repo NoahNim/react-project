@@ -29,7 +29,7 @@ function Album() {
 
     return (
         <div>
-            <div className="album__div">
+            <div className="one__album__div">
                 <button className="new__photo__button" onClick={newDirect}>Add Photo</button>
                 {photoArr?.map(photo => {
                     if (photo?.albumId === Number(id)) {
