@@ -135,6 +135,7 @@ export const getPhoto = (id) => async dispatch => {
         const photo = await res.json();
         dispatch(loadPhoto(photo));
     }
+    return res;
 }
 
 export const updatePhoto = (id, payload) => async dispatch => {

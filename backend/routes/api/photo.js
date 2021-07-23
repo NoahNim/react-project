@@ -16,7 +16,9 @@ const validateCreatePhoto = [
         .withMessage('Please make the name of your photo at least 3 characters in length'),
     check('imgUrl')
         .exists({ checkFalsy : true })
-        .withMessage('Please put in a url'),
+        .withMessage('Please put in a url')
+        .isURL()
+        .withMessage('Please input a valid image URL'),
     handleValidationErrors
 ]
 
