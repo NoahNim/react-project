@@ -30,10 +30,10 @@ function EditAlbum() {
         if (album) history.push('/album')   
     }
 
-    if (sessionUser) {
+    if (sessionUser.id === id) {
         return (
             <div className="form__container">
-                <form className="album__form"  onSubmit={handleSubmit}>
+                <form className="album__form" onSubmit={handleSubmit}>
                     <ul>
                         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                     </ul>
@@ -42,6 +42,13 @@ function EditAlbum() {
                     </label>
                     <button type="submit" className="submit">Submit</button>
                 </form>
+            </div>
+        )
+    }
+    else {
+        return (
+            <div>
+                <h1>I'm afraid I can't let you do that, {sessionUser.username}</h1>
             </div>
         )
     }
