@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory, Link } from 'react-router-dom';
 import { getAlbum, deleteAlbum } from '../../store/albums';
 import './AlbumPage.css';
 
@@ -11,7 +11,6 @@ function Album() {
     const photoArr = Object.values(photos);
     const dispatch = useDispatch();
     const history = useHistory();
-    const album = useSelector(state => state.albums);
 
     useEffect(() => {
         dispatch(getAlbum(id));
@@ -22,21 +21,32 @@ function Album() {
         history.push('/album')
     }
 
+    function newDirect() {
+        history.push(`/photo/album/${id}/new-photo`)
+    }
+
+    if (!sessionUser) history.push("/");
+
     return (
-        <div className="album__div">
-            {photoArr?.map(photo => {
-                if (photo?.albumId === Number(id)) {
-                    return (
-                        <div className="photo__list">
-                            <div>
-                                <h2 key={photo?.name}>{photo?.name}</h2>
-                                <img key={photo?.id} src={photo?.imgUrl} alt="meow" height="100" width="140"></img>
+        <div>
+            <div className="one__album__div">
+                <button className="new__photo__button" onClick={newDirect}>Add Photo</button>
+                {photoArr?.map(photo => {
+                    if (photo?.albumId === Number(id)) {
+                        return (
+                            <div className="photo__list">
+                                <div>
+                                    {/* <h2 key={photo?.name}>{photo?.name}</h2> */}
+                                    <Link to={`/photo/${photo?.id}`}>
+                                        <img key={photo?.id} src={photo?.imgUrl} alt="meow" height="100" width="140"></img>
+                                    </Link>
+                                </div>
                             </div>
-                            <button hidden={sessionUser.id !== photo?.userId} className="delete__button photo__delete">Delete</button>
-                        </div>
-                    )
-                }
-            })}
+                        )
+                    }
+                    return null;
+                })}
+            </div>
             <button className="delete__button" onClick={handleDeletAlbum}>Delete Album</button>
         </div>
     )

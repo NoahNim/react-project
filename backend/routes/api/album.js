@@ -16,9 +16,12 @@ const validateCreateAlbum = [
     handleValidationErrors
 ]
 
+
 //List Albums
 router.get('/', asyncHandler(async (req, res) => {
-    const albums = await db.Album.findAll();
+    const albums = await db.Album.findAll({
+        include: db.User
+    });
     
     return res.json({ albums });
 }));
@@ -74,5 +77,6 @@ router.delete('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
     await album.destroy();
     return res.json();
 }))
+
 
 module.exports = router;

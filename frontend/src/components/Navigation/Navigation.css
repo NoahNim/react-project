@@ -1,24 +1,27 @@
 nav {
     display: inline-flex;
     flex-direction: column;
-    background-color: rgb(91, 91, 247);
+    background-color: #E0D6AE;
     width: 200px;
     height: 150px;
     margin: 0px;
     position: sticky;
-    color: white;
+    color: black;
     border-radius: 10px;
     top: 0;
+    position: absolute;
 }
 
 .nav__link {
     margin-left: 10px;
     text-decoration: none;
+    color: black;
+    position: relative
 }
 
 .dropdown {
-   height: 400px;
-   background-color: rgb(91, 91, 247);
+   height: 200px;
+   background-color: #E0D6AE;
    border-bottom-left-radius: 10px;
    border-bottom-right-radius: 10px;
 }
@@ -29,16 +32,19 @@ ul {
 
 .profile__button {
     margin-left: 10px;
+    margin-top: 20px;
 }
 
 .open__nav {
-    width: 50px;
-    background-color: rgb(208, 129, 220);
-    border-radius: 7px;
+    width: 0px;
+    background-color: #E0D6AE;
+    border: none;
+    border-radius: 0px;
+    position: absolute;
 }
 
 .nav__link:visited {
-    color: white;
+    color: black;
 }
 
 #logout {
@@ -49,5 +55,6 @@ ul {
     box-sizing: border-box;
     border-radius: 4px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: #00CD59;
+    color: black;
+    background-color: #BCCEA0;
 }
