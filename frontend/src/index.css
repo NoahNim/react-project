@@ -20,3 +20,8 @@ input {
      background-color: #ACA97D;
     color:black;
 }
+
+button {
+    border: none;
+    cursor: grab;
+}

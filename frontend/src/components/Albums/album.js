@@ -46,8 +46,8 @@ function Album() {
                     }
                     return null;
                 })}
-                <button className="delete__button" onClick={handleDeletAlbum}>Delete Album</button>
             </div>
+            <button className="delete__button" onClick={handleDeletAlbum}>Delete Album</button>
         </div>
     )
 }
