@@ -1,20 +1,15 @@
 import { csrfFetch } from "./csrf";
+import { LOAD_ALBUM, getAlbum } from "./albums";
 
 const LOAD = 'photo/LOAD';
-const LOAD_PHOTO = 'photo/LOAD_photo';
 const NEW_PHOTO = 'photo/new';
 const DELETE_PHOTO = 'photo/delete';
 const UPDATE_PHOTO = 'photo/update';
 
-const load = photo => ({
+const loadPhoto = photo => ({
     type: LOAD,
     photo
 });
-
-const loadPhoto = photo => ({
-    type: LOAD_PHOTO,
-    photo
-})
 
 const makePhoto = photo => ({
     type: NEW_PHOTO,
@@ -62,6 +57,18 @@ export const updatePhoto = (id, payload) => async dispatch => {
     return res;
 }
 
+export const deletePhoto = (id) => async dispatch => {
+    const photoRes = await fetch(`/api/photo/${id}`);
+    const photo = await photoRes.json();
+    const res = await csrfFetch(`/api/photo/${id}`, {
+        method: 'DELETE'
+    })
+
+    if (res.ok) {
+        dispatch(destroyPhoto(photo));
+    }
+}
+
 export const createPhoto = ({ name, imgUrl, userId, albumId }) => async dispatch => {
     const res = await csrfFetch(`/api/photo/album/${albumId}/new-photo`, {
         method: 'POST',
@@ -83,18 +90,17 @@ export const createPhoto = ({ name, imgUrl, userId, albumId }) => async dispatch
     return res;
 }
 
-const PhotoReducer = (state = { photo: null, comments: null }, action) => {
+const PhotoReducer = (state = { albums: null, photo: null }, action) => {
     switch (action.type) {
         case LOAD:
             const photos = {};
-            action.photo.photo.forEach(thisPhoto => {
-                photos[thisPhoto.id] = thisPhoto
-            });
-            state.photo = photos;
+            action.photo.albums.photo.forEach(photo => {
+                photos[photo.id] = photo
+            })
+            state.albums.photo = photos
             return {
-                ...state.photo,
-                ...state.comments
-            }
+                ...state.photo
+            };
         case NEW_PHOTO:
             return {
                 ...state,
@@ -105,6 +111,17 @@ const PhotoReducer = (state = { photo: null, comments: null }, action) => {
                 ...state,
                 ...action.photo.photo
             }
+        case LOAD_ALBUM:
+            const albums = {};
+            action.albums.albums.forEach(photo => {
+                albums[photo.id] = photo
+            })
+            state.photo = albums
+            return {
+                ...state.photo,
+                ...state.albums,
+                ...state.comments
+            };
         default:
             return state;
     }

@@ -13,14 +13,9 @@ function EditPhoto() {
     const [errors, setErrors] = useState([]);
     const sessionUserId = sessionUser.id
     const { id } = useParams();
-    const albums = useSelector(state => state.albums)
+    const album = useSelector(state => state.albums);
 
-    const albumArr = Object.entries(albums);
-
-
-    console.log(albumArr)
-
-    console.log(id);
+    console.log(album);
 
     const handleSubmit = async (e) => {
         e.preventDefault();

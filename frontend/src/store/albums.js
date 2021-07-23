@@ -1,7 +1,7 @@
 import { csrfFetch } from "./csrf";
 
 const LOAD = 'albums/LOAD';
-const LOAD_ALBUM = 'album/LOAD_ALBUM';
+export const LOAD_ALBUM = 'album/LOAD_ALBUM';
 const NEW_ALBUM = 'album/new';
 const DELETE_ALBUM = 'album/delete';
 const UPDATE_ALBUM = 'album/update';
@@ -119,12 +119,9 @@ const AlbumReducer = (state = {albums: null, photo: null}, action) => {
             }
         case LOAD_ALBUM:
             const photos = {};
-
             action.photos.photos.forEach(photo => {
                 photos[photo.id] = photo
             })
-
-            // console.log(photos);
             state.photo = photos
             return {
                 ...state.photo
