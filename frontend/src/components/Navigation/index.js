@@ -30,7 +30,7 @@ function Navigation({ isLoaded }) {
 
     return (
         <>
-            <button onClick={handleNav} className="button" hidden={navOpen}>Navigation</button>
+            <button onClick={handleNav} className="button" hidden={navOpen}><img src="https://icon-library.com/images/hamburger-menu-icon-transparent/hamburger-menu-icon-transparent-4.jpg" alt="pls" height="10" weidth="10"></img></button>
             {navOpen &&
                 <nav className="nav">
                 <button onClick={handleNav} className="open__nav ">X</button>

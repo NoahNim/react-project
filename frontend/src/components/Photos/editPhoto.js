@@ -36,22 +36,31 @@ function EditPhoto() {
         }
     }
 
-    return (
-        <div className="form__container">
-            <form className="album__form" onSubmit={handleSubmit}>
-                <ul>
-                    {errors?.map((error, idx) => <li key={idx}>{error}</li>)}
-                </ul>
-                <label><div className="label">Edit Photo Name</div>
-                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} required></input>
-                </label>
-                <label><div className="label">Edit Photo URL</div>
-                    <input type="text" value={imgUrl} onChange={(e) => setImgUrl(e.target.value)} required></input>
-                </label>
-                <button type="submit" className="submit">Submit</button>
-            </form>
-        </div>
-    )
+    if (sessionUser.id === id) {
+        return (
+            <div className="form__container">
+                <form className="album__form" onSubmit={handleSubmit}>
+                    <ul>
+                        {errors?.map((error, idx) => <li key={idx}>{error}</li>)}
+                    </ul>
+                    <label><div className="label">Edit Photo Name</div>
+                        <input type="text" value={name} onChange={(e) => setName(e.target.value)} required></input>
+                    </label>
+                    <label><div className="label">Edit Photo URL</div>
+                        <input type="text" value={imgUrl} onChange={(e) => setImgUrl(e.target.value)} required></input>
+                    </label>
+                    <button type="submit" className="submit">Submit</button>
+                </form>
+            </div>
+        )
+    }
+    else {
+        return (
+            <div>
+                <h1>I'm afraid I can't let you do that, {sessionUser.username}</h1>
+            </div>
+        )
+    }
 }
 
 export default EditPhoto;

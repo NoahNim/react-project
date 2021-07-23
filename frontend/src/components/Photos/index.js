@@ -12,13 +12,27 @@ function Photo() {
     const dispatch = useDispatch();
     const history = useHistory();
 
+
+    const userId = photoArr.filter(photo => sessionUser?.id === photo?.id);
+
+    console.log(userId);
+
     useEffect(() => {
         dispatch(getPhoto(id));
-    }, [dispatch]);
+    }, [dispatch, id]);
 
     const handleDeletPhoto = async () => {
-        await dispatch(deletePhoto(id))
-        history.go(-1);
+        if (userId !== null) {
+            await dispatch(deletePhoto(id))
+            history.go(-1);
+        }
+        else {
+            return (
+                <h1>
+                    Seriously, stop trying to hack the website
+                </h1>
+            )
+        }
     }
 
     return (
@@ -30,7 +44,7 @@ function Photo() {
                             <div>
                                 <div className="user__photo__div">
                                     <h2 key={photo?.name}>{photo?.name}</h2>
-                                    <img key={photo?.id} src={photo?.imgUrl} alt="meow" height="100" width="140"></img>
+                                    <img key={photo?.id} src={photo?.imgUrl} alt="meow"></img>
                                     <p className="added__by"> Uploaded by: {photo?.User?.username}</p>
                                 </div>
                                 <button hidden={sessionUser.id !== photo?.userId} className="edit__button"><Link className="nav__link" key={photo?.name} to={`/photo/${photo?.id}/edit`}>Edit</Link></button>

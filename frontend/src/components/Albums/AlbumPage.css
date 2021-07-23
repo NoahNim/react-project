@@ -7,12 +7,12 @@
     text-decoration: none;
      background-color: #E0DDAE;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    height: 500px;
+    height: 630px;
     border-radius: 6px;
  }
 
  .one__album__div {
-         display: flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -20,8 +20,9 @@
     text-decoration: none;
      background-color: #E0DDAE;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    height: 500px;
+    height: 609px;
     border-radius: 6px;
+    overflow: scroll;
  }
 
 .user__albums__title {
@@ -35,11 +36,13 @@
     justify-content: center;
     align-items: center;
     margin-top: 10px;
-    margin-left: 180px;
+    margin-left: 400px;
    background-color: #ACA97D;
     border-radius: 6px;
-    padding: 15px;
+    padding: 1px;
     overflow: scroll;
+    height: 400px;
+    width: 200px;
 }
 
 .albums__list {
@@ -55,11 +58,13 @@
     justify-content: center;
     align-items: center;
     margin-top: 10px;
-    margin-right: 180px;
+    margin-right: 400px;
    background-color: #ACA97D;
     border-radius: 6px;
     padding: 15px;
     overflow: scroll;
+    height: 372px;
+    width: 190px;
 }
 
 .form__container {
@@ -132,7 +137,7 @@ a {
     box-sizing: border-box;
     border-radius: 7px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-     background-color: #ACA97D;
+     background-color: #E0D6AE;
 }
 
 .added__by {

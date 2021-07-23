@@ -7,8 +7,9 @@
     text-decoration: none;
     background-color: #E0DDAE;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    height: 500px;
+    height: 640px;
     border-radius: 6px;
+    overflow: scroll;
 }
 
 .user__photo__div {

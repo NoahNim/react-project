@@ -202,6 +202,10 @@ const AlbumReducer = (state = { albums: null, photo: null }, action) => {
                 allAlbums[album.id] = album;
             });
             state.albums = allAlbums;
+            // {
+            // albums: ...state.albums,
+            // photo: ...state.photo  
+        // }
             return {
                 ...state.photo,
                 ...state.albums
