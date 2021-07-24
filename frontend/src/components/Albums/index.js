@@ -11,6 +11,8 @@ function AlbumsPage() {
     const albumArr = Object.values(albums);
     const history = useHistory();
 
+    console.log(albumArr);
+
     useEffect(() => {
         dispatch(getAlbums());
     }, [dispatch]);
@@ -45,8 +47,9 @@ function AlbumsPage() {
                 <div className="other__album__div">
                     <h3>Expore Other Users Albums</h3>                    
                 {
-                    albumArr.map((album) => {
-                        if (sessionUser.id !== album?.userId && album?.id !== undefined) {
+                        albumArr.map((album) => {
+                            console.log(typeof (album));
+                        if (sessionUser.id !== album?.userId) {
                             return (
                                 <div className="albums__list">
                                     <Link className="nav__link" key={album?.name} to={`/album/${album?.id}`}>{album?.name}

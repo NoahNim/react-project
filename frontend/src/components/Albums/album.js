@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory, Link } from 'react-router-dom';
+import { useParams, useHistory} from 'react-router-dom';
 import { getAlbum, deleteAlbum } from '../../store/albums';
 import './AlbumPage.css';
 
@@ -22,13 +22,13 @@ function Album() {
 
     const handleDeletAlbum = async () => {
         // if (userId !== null ) {
-            await dispatch(deleteAlbum(id))
-            history.push('/album')
+        await dispatch(deleteAlbum(id))
+        history.push('/album')
         // }
         // else {
-            // <h1>
-            //     Seriously, stop trying to hack the website
-            // </h1>
+        // <h1>
+        //     Seriously, stop trying to hack the website
+        // </h1>
         // }
     }
 
@@ -47,10 +47,7 @@ function Album() {
                         return (
                             <div className="photo__list">
                                 <div>
-                                    {/* <h2 key={photo?.name}>{photo?.name}</h2> */}
-                                    <Link to={`/photo/${photo?.id}`}>
-                                        <img key={photo?.albumId} src={photo?.imgUrl} alt="meow" height="200" width="230"></img>
-                                    </Link>
+                                    <img key={photo?.albumId} src={photo?.imgUrl} alt="meow" height="200" width="230"></img>
                                 </div>
                             </div>
                         )
