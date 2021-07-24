@@ -1,3 +1,179 @@
+@media only screen and ( max-width: 600px){
+ .album__div {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    color: black;;
+    text-decoration: none;
+     background-color: #E0DDAE;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: 500px;
+    border-radius: 6px;
+    width: 570px;
+ }
+ 
+ .user__album__div {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   background-color: #ACA97D;
+    border-radius: 6px;
+    padding: 20px;
+    overflow: scroll;
+    height: 140px;
+    width: 200px;
+    margin-left: 175px;
+    margin-bottom: 100px;
+}
+
+.other__album__div {
+    display: flex;
+    flex-direction: column;
+   background-color: #ACA97D;
+    border-radius: 6px;
+    padding: 20px;
+    overflow: scroll;
+    height: 140px;
+    margin-left: 175px;
+    width: 199px;
+    margin-bottom: 100px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    margin-left: 0px;
+    width: 20px;
+    margin-right: 10px;
+}
+
+.new__album__button {
+    width: 20x;
+    box-sizing: border-box;
+    border-radius: 7px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     background-color: #E0D6AE;
+}
+
+.edit__button {
+    color: black;
+    background-color: #BCCEA0;
+    border-radius: 7px;
+    padding: 2px;
+    margin-left: 10px;
+    font-size: 0.3em;
+    align-items: center;
+}
+.delete__button {
+    /* background-color: #940051; */
+    color: black;
+    background-color: #BCCEA0;
+    border-radius: 7px;
+    padding: 2px;
+    font-size: 0.3em;
+    align-items: center;
+    color: black;
+    margin-top: 10px;
+}
+
+.albums__list {
+    background-color: #E0E0AE;
+    margin-top: 15px;
+    border-radius: 6px;
+    padding: 8px;
+}
+}
+
+@media only screen and ( max-width: 400px){
+ .album__div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: black;;
+    text-decoration: none;
+     background-color: #E0DDAE;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: 490px;
+    border-radius: 6px;
+    width: 350px;
+ }
+ 
+ .user__album__div {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   background-color: #ACA97D;
+    border-radius: 6px;
+    padding: 20px;
+    overflow: scroll;
+    height: 140px;
+    width: 120px;
+    margin-bottom: 100px;
+    margin-right: 200px;
+}
+
+.other__album__div {
+    display: flex;
+    flex-direction: column;
+   background-color: #ACA97D;
+    border-radius: 6px;
+    padding: 20px;
+    overflow: scroll;
+    height: 100px;
+    width: 100px;
+    margin-bottom: 100px;
+    margin-right: 200px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    margin-left: 0px;
+    width: 20px;
+    margin-right: 10px;
+}
+
+.new__album__button {
+    width: 20x;
+    box-sizing: border-box;
+    border-radius: 7px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     background-color: #E0D6AE;
+}
+
+.edit__button {
+    color: black;
+    background-color: #BCCEA0;
+    border-radius: 7px;
+    padding: 2px;
+    margin-left: 10px;
+    font-size: 0.3em;
+    align-items: center;
+}
+.delete__button {
+    /* background-color: #940051; */
+    color: black;
+    background-color: #BCCEA0;
+    border-radius: 7px;
+    padding: 2px;
+    font-size: 0.3em;
+    align-items: center;
+    color: black;
+    margin-top: 10px;
+}
+
+.albums__list {
+    background-color: #E0E0AE;
+    margin-top: 15px;
+    border-radius: 6px;
+    padding: 8px;
+}
+
+}
+
+@media only screen and (min-width: 610px) {
 .album__div {
     display: flex;
     flex-direction: row;
@@ -150,4 +326,5 @@ a {
     border-radius: 7px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: #ACA97D;
+}
 }

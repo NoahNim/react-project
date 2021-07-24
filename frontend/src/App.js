@@ -10,9 +10,9 @@ import AlbumsPage from './components/Albums/index';
 import Album from './components/Albums/album';
 import CreateAlbum from './components/Albums/createAlbum';
 import EditAlbum from './components/Albums/editAlbum';
-import Photo from './components/Photos/index';
+// import Photo from './components/Photos/index';
 import NewPhoto from './components/Photos/createPhoto';
-import EditPhoto from './components/Photos/editPhoto';
+// import EditPhoto from './components/Photos/editPhoto';
 
 function App() {
   const dispatch = useDispatch();
@@ -47,12 +47,12 @@ function App() {
             <Route path="/album/:id/edit" exact={true}>
               <EditAlbum />
             </Route>
-            <Route path="/photo/:id" exact={true}>
+            {/* <Route path="/photo/:id" exact={true}>
               <Photo />
             </Route>
             <Route path="/photo/:id/edit" exact={true}>
               <EditPhoto />
-            </Route>
+            </Route> */}
             <Route path="/photo/album/:id/new-photo" exact={true}>
               <NewPhoto />
             </Route>
