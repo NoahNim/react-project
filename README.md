@@ -3,7 +3,7 @@
 Phodo is a Flickr clone where users can create albums where they can upload their own photos. They can also se other users albums,
 
 ## Installation guide
-* https://github.com/NoahNim/react-project.git
+* git clone https://github.com/NoahNim/react-project.git
 * run npm install
 * cd into backend and run npm install
 * cd into frontend and run npm install
