@@ -7,7 +7,7 @@ const DELETE_ALBUM = 'album/delete';
 const UPDATE_ALBUM = 'album/update';
 // const LOAD_PHOTO = 'photo/LOAD';
 const NEW_PHOTO = 'photo/new';
-// const DELETE_PHOTO = 'photo/delete';
+const DELETE_PHOTO = 'photo/delete';
 // const UPDATE_PHOTO = 'photo/update';
 
 const load = albums => ({
@@ -123,10 +123,10 @@ const makePhoto = photo => ({
 //     photo
 // })
 
-// const destroyPhoto = photo => ({
-//     type: DELETE_PHOTO,
-//     payload: photo
-// })
+const destroyPhoto = photo => ({
+    type: DELETE_PHOTO,
+    payload: photo
+})
 
 // export const getPhoto = (id) => async dispatch => {
 //     const res = await fetch(`/api/photo/${id}`);
@@ -160,17 +160,17 @@ const makePhoto = photo => ({
 //     return res;
 // }
 
-// export const deletePhoto = (id) => async dispatch => {
-//     const photoRes = await fetch(`/api/photo/${id}`);
-//     const photo = await photoRes.json();
-//     const res = await csrfFetch(`/api/photo/${id}`, {
-//         method: 'DELETE'
-//     })
+export const deletePhoto = (id) => async dispatch => {
+    const photoRes = await fetch(`/api/photo/${id}`);
+    const photo = await photoRes.json();
+    const res = await csrfFetch(`/api/photo/${id}`, {
+        method: 'DELETE'
+    })
 
-//     if (res.ok) {
-//         dispatch(destroyPhoto(photo));
-//     }
-// }
+    if (res.ok) {
+        dispatch(destroyPhoto(photo));
+    }
+}
 
 export const createPhoto = ({ name, imgUrl, userId, albumId }) => async dispatch => {
     const res = await csrfFetch(`/api/photo/album/${albumId}/new-photo`, {
@@ -250,12 +250,12 @@ const AlbumReducer = (state = { albums: null, photo: null }, action) => {
         //         ...state,
         //         ...action.photo.photo
         //     }
-        // case DELETE_PHOTO:
-        //     delete action.payload
-        //     return {
-        //         ...state,
-        //         ...action.payload
-        //     }
+        case DELETE_PHOTO:
+            delete action.payload
+            return {
+                ...state,
+                ...action.payload
+            }
         default:
             return state;
     }

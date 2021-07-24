@@ -21,19 +21,6 @@
 //         dispatch(getPhoto(id));
 //     }, [dispatch, id]);
 
-//     const handleDeletPhoto = async () => {
-//         if (userId !== null) {
-//             await dispatch(deletePhoto(id))
-//             history.go(-1);
-//         }
-//         else {
-//             return (
-//                 <h1>
-//                     Seriously, stop trying to hack the website
-//                 </h1>
-//             )
-//         }
-//     }
 
 //     return (
 //         <div className="photo__div">
@@ -48,7 +35,7 @@
 //                                     <p className="added__by"> Uploaded by: {photo?.User?.username}</p>
 //                                 </div>
 //                                 <button hidden={sessionUser.id !== photo?.userId} className="edit__button"><Link className="nav__link" key={photo?.name} to={`/photo/${photo?.id}/edit`}>Edit</Link></button>
-//                                 <button hidden={sessionUser.id !== photo?.userId} className="delete__button photo__delete" onClick={handleDeletPhoto}>Delete</button>
+                
 //                             </div>
 //                         )
 //                     }
